@@ -1,0 +1,12 @@
+D:\DotNet\Carz\Carz.Common\bin\Debug\net5.0\Carz.Common.deps.json
+D:\DotNet\Carz\Carz.Common\bin\Debug\net5.0\Carz.Common.dll
+D:\DotNet\Carz\Carz.Common\bin\Debug\net5.0\ref\Carz.Common.dll
+D:\DotNet\Carz\Carz.Common\bin\Debug\net5.0\Carz.Common.pdb
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.csproj.AssemblyReference.cache
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.AssemblyInfoInputs.cache
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.AssemblyInfo.cs
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.csproj.CoreCompileInputs.cache
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.dll
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\ref\Carz.Common.dll
+D:\DotNet\Carz\Carz.Common\obj\Debug\net5.0\Carz.Common.pdb
