@@ -1,0 +1,2 @@
+2022-01-17 00:22:55.681 +05:30 [INF] Index method called.
+2022-01-17 00:22:55.823 +05:30 [INF] HTTP GET /api/User responded 200 in 251.5170 ms
