@@ -1,0 +1,12 @@
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\bin\Debug\net5.0\Carz.UserService.Infrastructure.deps.json
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\bin\Debug\net5.0\Carz.UserService.Infrastructure.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\bin\Debug\net5.0\ref\Carz.UserService.Infrastructure.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\bin\Debug\net5.0\Carz.UserService.Infrastructure.pdb
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.csproj.AssemblyReference.cache
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.AssemblyInfoInputs.cache
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.AssemblyInfo.cs
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.csproj.CoreCompileInputs.cache
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\ref\Carz.UserService.Infrastructure.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Infrastructure\obj\Debug\net5.0\Carz.UserService.Infrastructure.pdb

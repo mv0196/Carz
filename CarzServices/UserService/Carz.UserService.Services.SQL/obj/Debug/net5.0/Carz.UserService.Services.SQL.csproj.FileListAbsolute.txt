@@ -1,0 +1,11 @@
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\bin\Debug\net5.0\Carz.UserService.Services.SQL.deps.json
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\bin\Debug\net5.0\Carz.UserService.Services.SQL.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\bin\Debug\net5.0\ref\Carz.UserService.Services.SQL.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\bin\Debug\net5.0\Carz.UserService.Services.SQL.pdb
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.GeneratedMSBuildEditorConfig.editorconfig
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.AssemblyInfoInputs.cache
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.AssemblyInfo.cs
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.csproj.CoreCompileInputs.cache
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\ref\Carz.UserService.Services.SQL.dll
+D:\DotNet\Carz\CarzServices\UserService\Carz.UserService.Services.SQL\obj\Debug\net5.0\Carz.UserService.Services.SQL.pdb
