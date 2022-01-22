@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DotNet\\Carz\\CarzServices\\userservice\\Carz.UserService.Domain\\Carz.UserService.Domain.csproj",
+      "projectUniqueName": "D:\\DotNet\\Carz\\CarzServices\\UserService\\Carz.UserService.Domain\\Carz.UserService.Domain.csproj",
       "projectName": "Carz.UserService.Domain",
-      "projectPath": "D:\\DotNet\\Carz\\CarzServices\\userservice\\Carz.UserService.Domain\\Carz.UserService.Domain.csproj",
+      "projectPath": "D:\\DotNet\\Carz\\CarzServices\\UserService\\Carz.UserService.Domain\\Carz.UserService.Domain.csproj",
       "packagesPath": "C:\\Users\\Mukul Verma\\.nuget\\packages\\",
-      "outputPath": "D:\\DotNet\\Carz\\CarzServices\\userservice\\Carz.UserService.Domain\\obj\\",
+      "outputPath": "D:\\DotNet\\Carz\\CarzServices\\UserService\\Carz.UserService.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -65,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
