@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Carz.UserService.Domain.Responses;
+using MediatR;
 using System;
 
 namespace Carz.UserService.Domain.Queries

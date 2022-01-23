@@ -1,15 +1,12 @@
 ﻿using Carz.UserService.Domain.Responses;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Carz.UserService.Domain.Commands
 {
     public class CreateProfileCommand : IRequest<ProfileResponse>
     {
+        public Guid IdentityId { set; get; }
         public string Name { get; set; }
         public string Aadhaar { get; set; }
         public DateTime DateOfBirth { get; set; }
