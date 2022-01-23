@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "YpkzxATTk3Ud7iHMsHaCEDvYl82zgFDnpus0smGovf8lzjJwFmo9VJuQKAHR/P9c5czNQLfrLYMV+Y2j4Avvjg==",
+  "dgSpecHash": "5phr6ngfyslD2g65F49y97IpkP6wcoiIdPC8RgZmJ320CZuAkJYqsxq7UR8zqkfrwvsrjBqB0xo3Iu8c9BYioA==",
   "success": true,
   "projectFilePath": "D:\\DotNet\\Carz\\CarzServices\\UserService\\Carz.UserService.Domain\\Carz.UserService.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mukul Verma\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Mukul Verma\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Mukul Verma\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
+    "C:\\Users\\Mukul Verma\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }
