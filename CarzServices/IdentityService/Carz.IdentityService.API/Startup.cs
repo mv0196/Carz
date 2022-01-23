@@ -1,15 +1,18 @@
-using Carz.UserService.Infrastructure.Mappers;
-using Carz.UserService.Services.SQL.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Serilog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Carz.UserService.API
+namespace Carz.IdentityService.API
 {
     public class Startup
     {
@@ -23,16 +26,11 @@ namespace Carz.UserService.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
-
-            services.AddAutoMapper(x => { x.AddProfile<ProfileMapper>(); });
-
-            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.UserService.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.IdentityService.API", Version = "v1" });
             });
         }
 
@@ -43,16 +41,8 @@ namespace Carz.UserService.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carz.UserService.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carz.IdentityService.API v1"));
             }
-
-            using (var scope = app.ApplicationServices.CreateScope())
-            {
-                var dataContext = scope.ServiceProvider.GetRequiredService<UserDbContext>();
-                dataContext.Database.Migrate();
-            }
-
-            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
 

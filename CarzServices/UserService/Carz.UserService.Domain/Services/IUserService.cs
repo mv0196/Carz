@@ -10,9 +10,9 @@ namespace Carz.UserService.Domain.Services
 {
     public interface IUserService
     {
-        Task<User> Create(User user, CancellationToken cancellationToken = default);
-        Guid Delete(User user, CancellationToken cancellationToken = default);
-        Task<User> Update(Guid id, User user, CancellationToken cancellationToken = default);
-        Task<User> GetById(Guid id, CancellationToken cancellationToken = default);
+        Task<User> CreateProfile(User user, CancellationToken cancellationToken = default);
+        Task<User> UpdateProfile(Guid id, User user, CancellationToken cancellationToken = default);
+        Task<User> GetProfileById(Guid id, CancellationToken cancellationToken = default);
+        Task<User> GetProfileByIdentityId(Guid identityId, CancellationToken cancellationToken = default);
     }
 }
