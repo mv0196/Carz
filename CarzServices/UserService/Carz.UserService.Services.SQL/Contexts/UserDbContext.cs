@@ -9,6 +9,6 @@ namespace Carz.UserService.Services.SQL.Contexts
         {
         }
 
-        public DbSet<User> Users;
+        public DbSet<User> Users { get; set; }
     }
 }

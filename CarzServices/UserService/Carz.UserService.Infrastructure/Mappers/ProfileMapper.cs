@@ -15,6 +15,7 @@ namespace Carz.UserService.Infrastructure.Mappers
         public ProfileMapper()
         {
             CreateMap<CreateProfileCommand, User>();
+            CreateMap<UpdateProfileCommand, User>();
             CreateMap<User, ProfileResponse>();
         }
     }

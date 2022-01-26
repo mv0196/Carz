@@ -27,7 +27,7 @@ namespace Carz.UserService.Infrastructure.Handlers
             User user = await _service.CreateProfile(_mapper.Map<User>(request), cancellationToken);
             if (user != null)
             {
-                _logger.LogInformation("User with user id {UserId} created successfully",user.Id);
+                _logger.LogInformation("User with user id {UserId} created successfully", user.Id);
                 return _mapper.Map<ProfileResponse>(user);
             }
             _logger.LogInformation("Unable to create user with identity id {IdentityId}", user.IdentityId);
