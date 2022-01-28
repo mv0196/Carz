@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Carz.UserService.Domain.Commands;
+using Carz.UserService.Domain.Queries;
+using Carz.UserService.Domain.Responses;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Carz.UserService.API.Controllers
@@ -12,18 +11,55 @@ namespace Carz.UserService.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> logger;
+        private readonly IMediator _mediator;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(IMediator mediator)
         {
-            this.logger = logger;
+            _mediator = mediator;
         }
 
-        [HttpGet]
-        public IActionResult Index()
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById(GetProfileByIdQuery query)
         {
-            logger.LogInformation("Index method called.");
-            return Ok();
+            ProfileResponse res = await _mediator.Send(query);
+            if(res!=null)
+            {
+                return Ok(res);
+            }
+            return NotFound();
+        }
+
+        [HttpGet("identity/{IdentityId}")]
+        public async Task<IActionResult> GetByIdentityId(GetProfileByIdentityIdQuery query)
+        {
+            ProfileResponse res = await _mediator.Send(query);
+            if(res!=null)
+            {
+                return Ok(res);
+            }
+            return NotFound();
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateProfile(CreateProfileCommand command)
+        {
+            ProfileResponse res = await _mediator.Send(command);
+            if(res != null)
+            {
+                return Created($"{Request.Path}/{res.Id}",res);
+            }
+            return Conflict();
+        }
+
+        [HttpPut("edit")]
+        public async Task<IActionResult> UpdateProfile(UpdateProfileCommand command)
+        {
+            ProfileResponse res = await _mediator.Send(command);
+            if(res != null)
+            {
+                return Ok(res);
+            }
+            return NotFound();
         }
     }
 }

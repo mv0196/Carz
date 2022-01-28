@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Infras
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Services.Mongo", "IdentityService\Carz.IdentityService.Services.Mongo\Carz.IdentityService.Services.Mongo.csproj", "{7AA14EF1-7352-4B02-B7C2-9060A395ADF2}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Services.SQL", "IdentityService\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj", "{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{7AA14EF1-7352-4B02-B7C2-9060A395ADF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AA14EF1-7352-4B02-B7C2-9060A395ADF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AA14EF1-7352-4B02-B7C2-9060A395ADF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{B99CC214-F637-458F-9B60-0A92FDAA453C} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
 		{2CB6F843-193F-421E-AE8B-47B08012BB17} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
 		{7AA14EF1-7352-4B02-B7C2-9060A395ADF2} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
+		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45431D73-4286-4BEA-9040-88E762D06421}
