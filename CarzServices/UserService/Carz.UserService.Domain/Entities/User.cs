@@ -20,7 +20,7 @@ namespace Carz.UserService.Domain.Entities
         public string Address { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool CreatedPublished { get; set; }
         [DefaultValue(true)]
         public bool UpdatedPublished { get; set; }

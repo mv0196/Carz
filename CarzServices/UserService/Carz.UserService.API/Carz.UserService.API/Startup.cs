@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using MediatR;
 
 namespace Carz.UserService.API
 {
@@ -27,7 +28,9 @@ namespace Carz.UserService.API
 
             services.AddAutoMapper(x => { x.AddProfile<ProfileMapper>(); });
 
-            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+            services.AddMediatR(typeof(Startup));
+
+            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserSqlServerDb")));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

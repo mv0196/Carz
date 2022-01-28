@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Carz.UserService.Services.SQL.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class FirstMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

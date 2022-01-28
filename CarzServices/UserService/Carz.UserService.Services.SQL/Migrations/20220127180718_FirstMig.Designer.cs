@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carz.UserService.Services.SQL.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20220123131539_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220127180718_FirstMig")]
+    partial class FirstMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

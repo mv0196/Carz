@@ -4,4 +4,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Responses\" />
+    <Folder Include="Queries\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

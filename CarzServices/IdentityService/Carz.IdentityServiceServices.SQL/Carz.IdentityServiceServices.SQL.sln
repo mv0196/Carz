@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carz.IdentityServiceServices.SQL", "Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL.csproj", "{BE03C4FE-61DD-42F8-BFC7-A44009F82ACD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE03C4FE-61DD-42F8-BFC7-A44009F82ACD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE03C4FE-61DD-42F8-BFC7-A44009F82ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE03C4FE-61DD-42F8-BFC7-A44009F82ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE03C4FE-61DD-42F8-BFC7-A44009F82ACD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F71B0F02-76D6-489F-BFA3-53C723F81648}
+	EndGlobalSection
+EndGlobal
