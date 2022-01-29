@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System;
 
 namespace Carz.IdentityService.Domain.Commands.User
 {
-    class AssignRoleToUserCommand
+    public class AssignRoleToUserCommand : IRequest<bool>
     {
+        public Guid Id { get; set; }
+        public Guid RoleId { get; set; }
     }
 }

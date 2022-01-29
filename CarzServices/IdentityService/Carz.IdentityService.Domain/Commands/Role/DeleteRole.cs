@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using System;
 
 namespace Carz.IdentityService.Domain.Commands.Role
 {
-    class DeleteRole
+    public class DeleteRole : IRequest<bool>
     {
+        public Guid Id { get; set; }
     }
 }

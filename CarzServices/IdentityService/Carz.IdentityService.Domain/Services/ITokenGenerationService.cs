@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Carz.IdentityService.Domain.Queries.User
+namespace Carz.IdentityService.Domain.Services
 {
-    class GetUserByIdQuery
+    public interface ITokenGenerationService
     {
     }
 }
