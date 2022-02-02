@@ -2,9 +2,9 @@
 using MediatR;
 using System.Collections.Generic;
 
-namespace Carz.IdentityService.Domain.Commands.Role
+namespace Carz.IdentityService.Domain.Queries.Role
 {
-    public class GetAllRoles : IRequest<List<RoleResponse>>
+    public class GetAllRolesQuery : IRequest<List<RoleResponse>>
     {
     }
 }

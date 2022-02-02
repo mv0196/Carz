@@ -1,14 +1,12 @@
 ﻿using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Carz.IdentityService.Domain.Commands.User
 {
     public class EnableUserCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
+        // Admin which is blocking
+        public Guid AdminId { get; set; }
     }
 }

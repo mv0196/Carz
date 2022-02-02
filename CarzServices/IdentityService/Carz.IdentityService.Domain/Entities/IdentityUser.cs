@@ -17,12 +17,12 @@ namespace Carz.IdentityService.Domain.Entities
         public bool Blocked { get; set; }
         [DefaultValue(false)]
         public bool Disabled { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; }
         public DateTime BlockedAt { get; set; }
         public DateTime DisablededAt { get; set; }
         public DateTime EnablededAt { get; set; }
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         public bool CreatedPublished { get; set; }
         [DefaultValue(true)]
         public bool UpdatedPublished { get; set; }
@@ -32,6 +32,8 @@ namespace Carz.IdentityService.Domain.Entities
         public bool DisabledPublished { get; set; }
         [DefaultValue(true)]
         public bool EnabledPublished { get; set; }
+        [DefaultValue(true)]
+        public bool PasswordChangedPublished { get; set; }
 
     }
 }

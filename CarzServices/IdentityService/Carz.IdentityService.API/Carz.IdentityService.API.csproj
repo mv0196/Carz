@@ -20,8 +20,4 @@
     <ProjectReference Include="..\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

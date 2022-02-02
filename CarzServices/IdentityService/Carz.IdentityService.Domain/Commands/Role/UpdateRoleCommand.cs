@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Carz.IdentityService.Domain.Commands.Role
 {
-    public class UpdateRole : IRequest<RoleResponse>
+    public class UpdateRoleCommand : IRequest<RoleResponse>
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
