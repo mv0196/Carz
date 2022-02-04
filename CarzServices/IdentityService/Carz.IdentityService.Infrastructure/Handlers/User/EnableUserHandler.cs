@@ -18,7 +18,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _logger = logger;
             _service = service;
         }
-        public async Task<bool> Handle(EnableUserCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(EnableUserCommand request, CancellationToken cancellationToken = default)
         {
             bool res = await _service.EnableUser(request, cancellationToken);
             if (res == false)

@@ -25,7 +25,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _mapper = mapper;
         }
 
-        public async Task<bool> Handle(RevokeRoleFromUserCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(RevokeRoleFromUserCommand request, CancellationToken cancellationToken = default)
         {
             bool res = await _service.RevokeRoleFromUser(request, cancellationToken);
             if (res == false)

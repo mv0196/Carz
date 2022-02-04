@@ -1,3 +1,4 @@
+using Carz.Common.DependencyInjection;
 using Carz.IdentityService.Services.SQL.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,9 @@ namespace Carz.IdentityService.API
         {
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
             services.AddDbContext<IdentityUserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentitySqlServerDb")));
+
+            services.AddAuthorizationFilter();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -40,6 +44,9 @@ namespace Carz.IdentityService.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carz.IdentityService.API v1"));
             }
+
+            app.UseAuthentication();
+            app.UseAuthentication();
 
             using (var scope = app.ApplicationServices.CreateScope())
             {

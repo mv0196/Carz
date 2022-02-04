@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\Carz.Common\Carz.Common\Carz.Common.csproj" />
     <ProjectReference Include="..\Carz.IdentityService.Infrastructure\Carz.IdentityService.Infrastructure.csproj" />
     <ProjectReference Include="..\Carz.IdentityService.Services.Mongo\Carz.IdentityService.Services.Mongo.csproj" />
     <ProjectReference Include="..\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj" />

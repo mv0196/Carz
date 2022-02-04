@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Carz.Common\Carz.Common\Carz.Common.csproj" />
     <ProjectReference Include="..\..\Carz.UserService.Infrastructure\Carz.UserService.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Carz.UserService.Services.SQL\Carz.UserService.Services.SQL.csproj" />
   </ItemGroup>

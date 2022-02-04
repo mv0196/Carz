@@ -1,15 +1,12 @@
-﻿using Carz.IdentityService.Domain.Commands.User;
-using Carz.IdentityService.Domain.Entities;
+﻿using Carz.Common.Filters;
+using Carz.IdentityService.Domain.Commands.User;
 using Carz.IdentityService.Domain.Queries.User;
 using Carz.IdentityService.Domain.Responses.Role;
 using Carz.IdentityService.Domain.Responses.User;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Carz.IdentityService.API.Controllers
@@ -77,6 +74,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("enable/{Id}")]
+        [AuthorizationFilter("Admin")]
         public async Task<IActionResult> EnableUser([FromRoute] EnableUserCommand command)
         {
             bool res = await _mediator.Send(command);

@@ -5,6 +5,7 @@ using Carz.IdentityService.Domain.Services;
 using Carz.IdentityService.Services.SQL.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Carz.IdentityService.Services.SQL.Services
@@ -17,7 +18,7 @@ namespace Carz.IdentityService.Services.SQL.Services
         {
             _context = context;
         }
-        public async Task<Role> CreateRole(CreateRoleCommand command)
+        public async Task<Role> CreateRole(CreateRoleCommand command, CancellationToken cancellationToken = default)
         {
             Role role = await _context.Roles.FirstOrDefaultAsync(r => r.Name == command.Name);
 
@@ -36,7 +37,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return role;
         }
 
-        public async Task<bool> DeleteRole(DeleteRoleCommand command)
+        public async Task<bool> DeleteRole(DeleteRoleCommand command, CancellationToken cancellationToken = default)
         {
             Role role = await _context.Roles.FirstOrDefaultAsync(r => r.Id == command.Id);
 
@@ -57,12 +58,12 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<List<Role>> GetAllRoles(GetAllRolesQuery query)
+        public async Task<List<Role>> GetAllRoles(GetAllRolesQuery query, CancellationToken cancellationToken = default)
         {
             return await _context.Roles.ToListAsync();
         }
 
-        public async Task<Role> UpdateRole(UpdateRoleCommand command)
+        public async Task<Role> UpdateRole(UpdateRoleCommand command, CancellationToken cancellationToken = default)
         {
             Role role = await _context.Roles.FirstOrDefaultAsync(r => r.Id == command.Id);
 

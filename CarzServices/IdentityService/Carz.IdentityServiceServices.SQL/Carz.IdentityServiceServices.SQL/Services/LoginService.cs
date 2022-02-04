@@ -10,6 +10,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Carz.IdentityService.Services.SQL.Services
@@ -54,7 +55,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public async Task<string> Login(LoginQuery query)
+        public async Task<string> Login(LoginQuery query, CancellationToken cancellationToken = default)
         {
             string passwordHash = query.Password;// will come from service 
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Email == query.Email && u.PasswordHash == passwordHash);

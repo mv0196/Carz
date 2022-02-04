@@ -23,7 +23,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _mapper = mapper;
         }
 
-        public async Task<List<RoleResponse>> Handle(GetUserRolesQuery request, CancellationToken cancellationToken)
+        public async Task<List<RoleResponse>> Handle(GetUserRolesQuery request, CancellationToken cancellationToken = default)
         {
             List<Domain.Entities.Role> roles = await _service.GetUserRoles(request, cancellationToken);
             if(roles == null)

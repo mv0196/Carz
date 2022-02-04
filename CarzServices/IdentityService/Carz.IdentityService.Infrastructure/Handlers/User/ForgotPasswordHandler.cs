@@ -22,7 +22,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _mapper = mapper;
         }
         // Update password
-        public async Task<bool> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ForgotPasswordCommand request, CancellationToken cancellationToken = default)
         {
             bool res = await _service.ForgotPassword(request, cancellationToken);
             if (res == false)
@@ -34,7 +34,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
         }
 
         // send email
-        public async Task<bool> Handle(ForgotPasswordQuery request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(ForgotPasswordQuery request, CancellationToken cancellationToken = default)
         {
             return true;
         }

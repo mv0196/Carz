@@ -23,7 +23,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _mapper = mapper;
         }
 
-        public async Task<UserResponse> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
+        public async Task<UserResponse> Handle(GetUserByIdQuery request, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _service.GetUserById(request, cancellationToken);
             if(user == null)

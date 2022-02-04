@@ -5,7 +5,6 @@ using Carz.IdentityService.Domain.Responses.User;
 using Carz.IdentityService.Domain.Services;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,7 +22,7 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
             _service = service;
             _mapper = mapper;
         }
-        public async Task<UserResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
+        public async Task<UserResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _service.UpdateUser(request, cancellationToken);
             if (user == null)

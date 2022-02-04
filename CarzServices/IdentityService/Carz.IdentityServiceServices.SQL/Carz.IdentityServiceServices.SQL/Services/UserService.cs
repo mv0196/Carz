@@ -20,7 +20,7 @@ namespace Carz.IdentityService.Services.SQL.Services
         {
             _context = context;
         }
-        public async Task<bool> AssignRoleToUser(AssignRoleToUserCommand command, CancellationToken cancellationToken)
+        public async Task<bool> AssignRoleToUser(AssignRoleToUserCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUserRole role = await _context.IdentityUserRoles.FirstOrDefaultAsync(ur => ur.IdentityUserId == command.Id && ur.RoleId == command.RoleId);
             if (role != null)
@@ -40,7 +40,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<bool> BlockUser(BlockUserCommand command, CancellationToken cancellationToken)
+        public async Task<bool> BlockUser(BlockUserCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == command.Id);
 
@@ -55,7 +55,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<IdentityUser> CreateUser(CreateUserComand command, CancellationToken cancellationToken)
+        public async Task<IdentityUser> CreateUser(CreateUserComand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Email == command.Email);
 
@@ -80,7 +80,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return user;
         }
 
-        public async Task<bool> DisableUser(DisableUserCommand command, CancellationToken cancellationToken)
+        public async Task<bool> DisableUser(DisableUserCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == command.Id);
 
@@ -97,7 +97,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<bool> EnableUser(EnableUserCommand command, CancellationToken cancellationToken)
+        public async Task<bool> EnableUser(EnableUserCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == command.Id);
 
@@ -114,7 +114,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<bool> ForgotPassword(ForgotPasswordCommand command, CancellationToken cancellationToken)
+        public async Task<bool> ForgotPassword(ForgotPasswordCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == command.Id);
 
@@ -134,12 +134,23 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task ForgotPassword(ForgotPasswordQuery query, CancellationToken cancellationToken)
+        public async Task ForgotPassword(ForgotPasswordQuery query, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<IdentityUser> GetUserById(GetUserByIdQuery query, CancellationToken cancellationToken)
+        public async Task<Guid> GetIdByEmail(GetIdByEmailQuery query, CancellationToken cancellationToken = default)
+        {
+            IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Email == query.Email);
+
+            // user not exists
+            if (user == null)
+                return Guid.Empty;
+
+            return user.Id;
+        }
+
+        public async Task<IdentityUser> GetUserById(GetUserByIdQuery query, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == query.Id);
 
@@ -150,7 +161,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return user;
         }
 
-        public async Task<List<Role>> GetUserRoles(GetUserRolesQuery query, CancellationToken cancellationToken)
+        public async Task<List<Role>> GetUserRoles(GetUserRolesQuery query, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == query.Id);
 
@@ -161,7 +172,18 @@ namespace Carz.IdentityService.Services.SQL.Services
             return await _context.IdentityUserRoles.Where(ur => ur.IdentityUserId == query.Id).Select(r => r.Role).ToListAsync();
         }
 
-        public async Task<bool> RevokeRoleFromUser(RevokeRoleFromUserCommand command, CancellationToken cancellationToken)
+        public async Task<List<Role>> GetUserRolesByEmail(GetUserRolesByEmailQuery query, CancellationToken cancellationToken = default)
+        {
+            IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Email == query.Email);
+
+            // user not exists
+            if (user == null)
+                return null;
+
+            return await _context.IdentityUserRoles.Where(ur => ur.IdentityUserId == user.Id).Select(r => r.Role).ToListAsync();
+        }
+
+        public async Task<bool> RevokeRoleFromUser(RevokeRoleFromUserCommand command, CancellationToken cancellationToken = default)
         {
             IdentityUser user = await _context.IdentityUsers.FirstOrDefaultAsync(u => u.Id == command.Id);
 
@@ -181,7 +203,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             return true;
         }
 
-        public async Task<IdentityUser> UpdateUser(UpdateUserCommand command, CancellationToken cancellationToken)
+        public async Task<IdentityUser> UpdateUser(UpdateUserCommand command, CancellationToken cancellationToken = default)
         {
             // Seems like there is nothing user can update. Most probably we don't want user to change email
             throw new NotImplementedException();
