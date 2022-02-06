@@ -17,6 +17,7 @@ namespace Carz.IdentityService.Domain.Entities
         public Guid IdentityUserId { get; set; }
         [ForeignKey("Role")]
         public Guid RoleId { get; set; }
+        public Guid AssignedBy { get; set; }
 
         public IdentityUser User { get; set; }
         public Role Role { get; set; }

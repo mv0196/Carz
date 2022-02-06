@@ -31,6 +31,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Services.SQL", "IdentityService\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj", "{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VariantService", "VariantService", "{4409E9B8-F507-498B-9862-79468ACF6259}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.API", "VariantService\Carz.VariantService.API\Carz.VariantService.API\Carz.VariantService.API.csproj", "{868E4876-D195-428E-9FEB-02A56AC46713}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Domain", "VariantService\Carz.VariantService.Domain\Carz.VariantService.Domain\Carz.VariantService.Domain.csproj", "{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Infrastructure", "VariantService\Carz.VariantService.Infrastructure\Carz.VariantService.Infrastructure\Carz.VariantService.Infrastructure.csproj", "{1391156A-3F9F-4FF5-BAD2-755C777853CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Services.SQL", "VariantService\Carz.VariantService.Services.SQL\Carz.VariantService.Services.SQL\Carz.VariantService.Services.SQL.csproj", "{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +91,22 @@ Global
 		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868E4876-D195-428E-9FEB-02A56AC46713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868E4876-D195-428E-9FEB-02A56AC46713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868E4876-D195-428E-9FEB-02A56AC46713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868E4876-D195-428E-9FEB-02A56AC46713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1391156A-3F9F-4FF5-BAD2-755C777853CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1391156A-3F9F-4FF5-BAD2-755C777853CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1391156A-3F9F-4FF5-BAD2-755C777853CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1391156A-3F9F-4FF5-BAD2-755C777853CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +123,10 @@ Global
 		{2CB6F843-193F-421E-AE8B-47B08012BB17} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
 		{7AA14EF1-7352-4B02-B7C2-9060A395ADF2} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
 		{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53} = {EB763B5A-26C7-4416-B030-BE6E2EABC791}
+		{868E4876-D195-428E-9FEB-02A56AC46713} = {4409E9B8-F507-498B-9862-79468ACF6259}
+		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062} = {4409E9B8-F507-498B-9862-79468ACF6259}
+		{1391156A-3F9F-4FF5-BAD2-755C777853CC} = {4409E9B8-F507-498B-9862-79468ACF6259}
+		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8} = {4409E9B8-F507-498B-9862-79468ACF6259}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45431D73-4286-4BEA-9040-88E762D06421}

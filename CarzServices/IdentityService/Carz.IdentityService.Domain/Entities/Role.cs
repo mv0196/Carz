@@ -11,5 +11,6 @@ namespace Carz.IdentityService.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public string Name { get; set; }
+        public Guid CreatedBy { get; set; }
     }
 }

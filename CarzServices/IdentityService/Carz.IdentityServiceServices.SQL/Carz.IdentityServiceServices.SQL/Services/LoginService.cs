@@ -38,6 +38,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             var claims = new[]
             {
                 new Claim("email", user.Email),
+                new Claim("Id", user.Id.ToString()),
                 new Claim("roles", rolesString)
             };
 

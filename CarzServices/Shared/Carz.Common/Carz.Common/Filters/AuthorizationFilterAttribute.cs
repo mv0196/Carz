@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -55,11 +56,13 @@ namespace Carz.Common.Filters
 
             string tokenRolesStr = "";
             string email = "";
+            Guid Id = Guid.Empty;
 
             var decodedToken = handler.ReadJwtToken(token);
 
             tokenRolesStr = decodedToken.Claims.FirstOrDefault(c => c.Type == "roles").Value;
             email = decodedToken.Claims.FirstOrDefault(c => c.Type == "email").Value;
+            Guid.TryParse(decodedToken.Claims.FirstOrDefault(c => c.Type == "Id").Value, out Id);
 
             List<string> roles = tokenRolesStr.Split(",").ToList();
 
@@ -71,7 +74,8 @@ namespace Carz.Common.Filters
             }
 
             //means allowed, so continue
-
+            //string body = await actionContext.Request.Content.ReadAsStringAsync();
+            actionContext.Request.Headers.Add("AdminId", Id.ToString());
             await base.OnAuthorizationAsync(actionContext, cancellationToken);
         }
     }

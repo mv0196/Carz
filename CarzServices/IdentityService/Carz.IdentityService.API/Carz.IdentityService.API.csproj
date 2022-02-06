@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -16,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\Carz.Common\Carz.Common\Carz.Common.csproj" />
+    <ProjectReference Include="..\..\UserService\Carz.UserService.Domain\Carz.UserService.Domain.csproj" />
     <ProjectReference Include="..\Carz.IdentityService.Infrastructure\Carz.IdentityService.Infrastructure.csproj" />
     <ProjectReference Include="..\Carz.IdentityService.Services.Mongo\Carz.IdentityService.Services.Mongo.csproj" />
     <ProjectReference Include="..\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj" />

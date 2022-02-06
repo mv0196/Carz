@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Primitives;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,16 @@ namespace Carz.IdentityService.API.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] CreateRoleCommand command)
         {
+            StringValues adminIdValue = new StringValues("");
+            Request.Headers.TryGetValue("AdminId", out adminIdValue);
+
+            string adminId = adminIdValue.ToString();
+
+            Guid adminGuid = Guid.Empty;
+            Guid.TryParse(adminId, out adminGuid);
+
+            command.AdminId = adminGuid;
+
             RoleResponse res = await _mediator.Send(command);
             if(res == null)
             {
