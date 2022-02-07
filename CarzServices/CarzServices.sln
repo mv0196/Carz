@@ -39,7 +39,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Domain"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Infrastructure", "VariantService\Carz.VariantService.Infrastructure\Carz.VariantService.Infrastructure\Carz.VariantService.Infrastructure.csproj", "{1391156A-3F9F-4FF5-BAD2-755C777853CC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Services.SQL", "VariantService\Carz.VariantService.Services.SQL\Carz.VariantService.Services.SQL\Carz.VariantService.Services.SQL.csproj", "{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.Services.Mongo", "VariantService\Carz.VariantService.Services.SQL\Carz.VariantService.Services.SQL\Carz.VariantService.Services.Mongo.csproj", "{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AdvertisementService", "AdvertisementService", "{38D559E5-6FE4-4665-8DB9-153EA0888DD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.AdvertisementService.API", "AdvertisementService\Carz.AdvertisementService.API\Carz.AdvertisementService.API\Carz.AdvertisementService.API.csproj", "{5FEC8492-9D29-4DAE-B926-1A304F67740F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.AdvertisementService.Domain", "AdvertisementService\Carz.AdvertisementService.Domain\Carz.AdvertisementService.Domain\Carz.AdvertisementService.Domain.csproj", "{17062055-F997-43FE-A63F-96A89CEE2DF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.AdvertisementService.Infrastructure", "AdvertisementService\Carz.AdvertisementService.Infrastructure\Carz.AdvertisementService.Infrastructure\Carz.AdvertisementService.Infrastructure.csproj", "{A5471B7D-3B03-4EE1-BE57-88A149F9A659}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.AdvertisementService.Services.Mongo", "AdvertisementService\Carz.AdvertisementService.Services.Mongo\Carz.AdvertisementService.Services.Mongo\Carz.AdvertisementService.Services.Mongo.csproj", "{EBDF4905-2B72-4747-BB61-267171B56254}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,6 +117,22 @@ Global
 		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEC8492-9D29-4DAE-B926-1A304F67740F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEC8492-9D29-4DAE-B926-1A304F67740F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEC8492-9D29-4DAE-B926-1A304F67740F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEC8492-9D29-4DAE-B926-1A304F67740F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17062055-F997-43FE-A63F-96A89CEE2DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17062055-F997-43FE-A63F-96A89CEE2DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17062055-F997-43FE-A63F-96A89CEE2DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17062055-F997-43FE-A63F-96A89CEE2DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5471B7D-3B03-4EE1-BE57-88A149F9A659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5471B7D-3B03-4EE1-BE57-88A149F9A659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5471B7D-3B03-4EE1-BE57-88A149F9A659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5471B7D-3B03-4EE1-BE57-88A149F9A659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBDF4905-2B72-4747-BB61-267171B56254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBDF4905-2B72-4747-BB61-267171B56254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBDF4905-2B72-4747-BB61-267171B56254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBDF4905-2B72-4747-BB61-267171B56254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -127,6 +153,10 @@ Global
 		{3D8B2B9C-CC1D-497A-BAC5-8EB64BA76062} = {4409E9B8-F507-498B-9862-79468ACF6259}
 		{1391156A-3F9F-4FF5-BAD2-755C777853CC} = {4409E9B8-F507-498B-9862-79468ACF6259}
 		{8DFCC674-1853-4B8F-BBF9-8709AC6E5DB8} = {4409E9B8-F507-498B-9862-79468ACF6259}
+		{5FEC8492-9D29-4DAE-B926-1A304F67740F} = {38D559E5-6FE4-4665-8DB9-153EA0888DD1}
+		{17062055-F997-43FE-A63F-96A89CEE2DF3} = {38D559E5-6FE4-4665-8DB9-153EA0888DD1}
+		{A5471B7D-3B03-4EE1-BE57-88A149F9A659} = {38D559E5-6FE4-4665-8DB9-153EA0888DD1}
+		{EBDF4905-2B72-4747-BB61-267171B56254} = {38D559E5-6FE4-4665-8DB9-153EA0888DD1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {45431D73-4286-4BEA-9040-88E762D06421}
