@@ -4,6 +4,7 @@ using Carz.IdentityService.Domain.Queries.User;
 using Carz.IdentityService.Domain.Responses.Role;
 using Carz.IdentityService.Domain.Responses.User;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPost("block")]
+        [Authorize]
         public async Task<IActionResult> BlockUser([FromBody] BlockUserCommand command)
         {
             bool res = await _mediator.Send(command);

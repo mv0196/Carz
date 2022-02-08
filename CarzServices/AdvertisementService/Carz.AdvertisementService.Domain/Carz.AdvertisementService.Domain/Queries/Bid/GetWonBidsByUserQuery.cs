@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Carz.AdvertisementService.Domain.Responses;
+using MediatR;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Carz.AdvertisementService.Domain.Queries.Bid
 {
-    class GetWonBidsByUserQuery
+    public class GetWonBidsByUserQuery : IRequest<List<BidResponse>>
     {
+        public Guid UserId { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Carz.AdvertisementService.Domain.Commands.Advertisement
 {
-    public class UpdaetAdCommand : IRequest<AdResponse>
+    public class UpdateAdCommand : IRequest<AdResponse>
     {
         public Guid Id { get; set; }
         public string Description { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Carz.AdvertisementService.Domain.Commands.Advertisement
 {
-    public  class DiableAdCommand : IRequest<bool>
+    public  class DisableAdCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
         [JsonIgnore]

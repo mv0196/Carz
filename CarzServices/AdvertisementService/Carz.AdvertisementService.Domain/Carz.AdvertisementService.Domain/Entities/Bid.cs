@@ -15,8 +15,9 @@ namespace Carz.AdvertisementService.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
         public Guid AdvertisementId { get; set; }
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
         public double Price { get; set; }
+        [DefaultValue(false)]
         public bool Won { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

@@ -32,6 +32,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.IdentityService.Services.SQL", "IdentityService\Carz.IdentityServiceServices.SQL\Carz.IdentityServiceServices.SQL\Carz.IdentityService.Services.SQL.csproj", "{31C12D9A-9F72-4DA8-8FFE-9A2FDB947B53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VariantService", "VariantService", "{4409E9B8-F507-498B-9862-79468ACF6259}"
+	ProjectSection(SolutionItems) = preProject
+		Shared\Carz.Common\Carz.Common\Responses\IApiResponse.cs = Shared\Carz.Common\Carz.Common\Responses\IApiResponse.cs
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Carz.VariantService.API", "VariantService\Carz.VariantService.API\Carz.VariantService.API\Carz.VariantService.API.csproj", "{868E4876-D195-428E-9FEB-02A56AC46713}"
 EndProject
