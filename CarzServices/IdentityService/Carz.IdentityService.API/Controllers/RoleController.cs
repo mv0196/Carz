@@ -2,6 +2,7 @@
 using Carz.IdentityService.Domain.Queries.Role;
 using Carz.IdentityService.Domain.Responses.Role;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -26,6 +27,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPost("create")]
+        [Authorize("Admin")]
         public async Task<IActionResult> Create([FromBody] CreateRoleCommand command)
         {
             StringValues adminIdValue = new StringValues("");

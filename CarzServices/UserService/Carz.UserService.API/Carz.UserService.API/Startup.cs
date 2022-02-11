@@ -31,7 +31,7 @@ namespace Carz.UserService.API
 
             services.AddMediatR(typeof(Startup));
 
-            services.AddDbContext<UserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UserSqlServerDb")));
+            services.AddSqlServer<UserDbContext>(Configuration);
 
             services.AddAuthorizationFilter();
 

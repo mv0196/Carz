@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Carz.Common\Carz.Common\Carz.Common.csproj" />
     <ProjectReference Include="..\..\Carz.IdentityService.Domain\Carz.IdentityService.Domain.csproj" />
   </ItemGroup>
 

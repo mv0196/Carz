@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Carz.AdvertisementService.Domain.Responses;
+using MediatR;
 using System;
 using System.Collections.Generic;
 

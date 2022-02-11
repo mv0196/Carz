@@ -1,16 +1,17 @@
+using Carz.AdvertisementService.Domain.Services;
+using Carz.AdvertisementService.Services.Mongo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Serilog;
+using AutoMapper;
+using Carz.AdvertisementService.Infrastructure.Mappers;
+using Carz.Common.DependencyInjection;
+using Carz.AdvertisementService.Services.Mongo.Contexts;
 
 namespace Carz.AdvertisementService.API
 {
@@ -26,6 +27,14 @@ namespace Carz.AdvertisementService.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper( x => { x.AddProfile<AdMapper>(); x.AddProfile<BidMapper>(); });
+
+            services.AddSqlServer<AdvertisementDbContext>(Configuration);
+
+            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
+
+            services.AddScoped<IAdService, AdService>();
+            services.AddScoped<IBidService, BidService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

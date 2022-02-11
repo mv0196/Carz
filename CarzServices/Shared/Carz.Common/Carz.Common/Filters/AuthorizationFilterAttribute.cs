@@ -60,8 +60,8 @@ namespace Carz.Common.Filters
 
             var decodedToken = handler.ReadJwtToken(token);
 
-            tokenRolesStr = decodedToken.Claims.FirstOrDefault(c => c.Type == "roles").Value;
-            email = decodedToken.Claims.FirstOrDefault(c => c.Type == "email").Value;
+            tokenRolesStr = decodedToken.Claims.FirstOrDefault(c => c.Type == "Roles").Value;
+            email = decodedToken.Claims.FirstOrDefault(c => c.Type == "Email").Value;
             Guid.TryParse(decodedToken.Claims.FirstOrDefault(c => c.Type == "Id").Value, out Id);
 
             List<string> roles = tokenRolesStr.Split(",").ToList();

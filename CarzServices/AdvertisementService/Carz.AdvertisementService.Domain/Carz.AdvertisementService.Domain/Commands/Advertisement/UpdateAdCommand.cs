@@ -1,4 +1,5 @@
-﻿using Carz.AdvertisementService.Domain.Responses;
+﻿using Carz.AdvertisementService.Domain.Entities;
+using Carz.AdvertisementService.Domain.Responses;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,10 @@ namespace Carz.AdvertisementService.Domain.Commands.Advertisement
     {
         public Guid Id { get; set; }
         public string Description { get; set; }
-        public Guid Status { get; set; }
-        public Guid Ownership { get; set; }
+        public string Status { get; set; }
+        public string Ownership { get; set; }
         public double AskPrice { get; set; }
+        public Variant Variant { get; set; }
+        public Guid UpdatedBy { get; set; }
     }
 }

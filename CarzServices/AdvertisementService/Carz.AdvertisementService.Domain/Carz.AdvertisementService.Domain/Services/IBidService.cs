@@ -12,10 +12,10 @@ namespace Carz.AdvertisementService.Domain.Services
 {
     public interface IBidService
     {
-        Task<List<Bid>> GetAllBidsByUser(GetAllBidsByUserQuery query, CancellationToken cancellationToken);
-        Task<List<Bid>> GetWonBidsByUser(GetWonBidsByUserQuery query, CancellationToken cancellationToken);
-        Task<Bid> PlaceBid(PlaceBidCommand command, CancellationToken cancellationToken);
-        Task<bool> RemoveBid(RemoveBidCommand command, CancellationToken cancellationToken);
-        Task<Bid> UpdateBid(UpdateBidCommand command, CancellationToken cancellationToken);
+        Task<List<Bid>> GetAllBidsByUser(GetAllBidsByUserQuery query, CancellationToken cancellationToken = default);
+        Task<List<Bid>> GetWonBidsByUser(GetWonBidsByUserQuery query, CancellationToken cancellationToken = default);
+        Task<Bid> PlaceBid(PlaceBidCommand command, CancellationToken cancellationToken = default);
+        Task<bool> RemoveBid(RemoveBidCommand command, CancellationToken cancellationToken = default);
+        Task<Bid> UpdateBid(UpdateBidCommand command, CancellationToken cancellationToken = default);
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Carz.IdentityService.Services.SQL.Migrations
 {
     [DbContext(typeof(IdentityUserDbContext))]
-    [Migration("20220206083709_Initial Migration")]
+    [Migration("20220209105214_Initial Migration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

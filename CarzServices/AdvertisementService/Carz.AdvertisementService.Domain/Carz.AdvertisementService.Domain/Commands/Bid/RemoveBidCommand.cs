@@ -9,6 +9,7 @@ namespace Carz.AdvertisementService.Domain.Commands.Bid
 {
     public class RemoveBidCommand : IRequest<bool>
     {
-        public Guid Id { get; set; }
+        public Guid AdvertisementId { get; set; }
+        public Guid UserId { get; set; }
     }
 }

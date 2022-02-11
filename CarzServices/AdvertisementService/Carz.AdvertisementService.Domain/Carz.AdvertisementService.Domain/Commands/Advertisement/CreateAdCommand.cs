@@ -13,8 +13,9 @@ namespace Carz.AdvertisementService.Domain.Commands.Advertisement
     {
         public Guid UserId { get; set; }
         public string Description { get; set; }
-        public Guid Status { get; set; }
-        public Guid Ownership { get; set; }
+        public string Status { get; set; }
+        public string Ownership { get; set; }
         public double AskPrice { get; set; }
+        public Variant Variant { get; set; }
     }
 }

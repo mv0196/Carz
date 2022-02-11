@@ -1,4 +1,5 @@
-﻿using Carz.IdentityService.Domain.Entities;
+﻿using Carz.Common.Configuration;
+using Carz.IdentityService.Domain.Entities;
 using Carz.IdentityService.Domain.Queries.Login;
 using Carz.IdentityService.Domain.Services;
 using Carz.IdentityService.Services.SQL.Contexts;
@@ -37,19 +38,21 @@ namespace Carz.IdentityService.Services.SQL.Services
 
             var claims = new[]
             {
-                new Claim("email", user.Email),
+                new Claim("Email", user.Email),
                 new Claim("Id", user.Id.ToString()),
-                new Claim("roles", rolesString)
+                new Claim("Roles", rolesString)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("signing_key").Value));
+            var jwtConfiguration = new JwtConfiguration();
+            _configuration.Bind(nameof(jwtConfiguration), jwtConfiguration);
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtConfiguration.SigningKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: "IdentityService",
                 audience: "UserService",
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddMinutes(Convert.ToInt32(jwtConfiguration.ExpiryTimeInMinutes)),
                 signingCredentials: creds
             );
 

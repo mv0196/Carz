@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Carz.AdvertisementService.Domain.Responses;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Carz.AdvertisementService.Domain.Commands.Bid
 {
-    public class UpdateBidCommand : IRequest<Entities.Bid>
+    public class UpdateBidCommand : IRequest<BidResponse>
     {
         public Guid Id { get; set; }
         public Guid AdvertisementId { get; set; }

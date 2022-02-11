@@ -47,7 +47,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPost("block")]
-        [Authorize]
+        [Authorize("Admin")]
         public async Task<IActionResult> BlockUser([FromBody] BlockUserCommand command)
         {
             bool res = await _mediator.Send(command);

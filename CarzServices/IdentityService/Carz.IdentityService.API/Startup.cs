@@ -1,10 +1,10 @@
+using Carz.Common.Configuration;
 using Carz.Common.DependencyInjection;
 using Carz.IdentityService.Domain.Entities;
 using Carz.IdentityService.Domain.Services;
 using Carz.IdentityService.Infrastructure.Mappers;
 using Carz.IdentityService.Services.SQL.Contexts;
 using Carz.IdentityService.Services.SQL.Services;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,10 +30,11 @@ namespace Carz.IdentityService.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(x => { x.AddProfile<UserMapper>(); x.AddProfile<RoleMapper>(); });
+            services.AddCommonJwtAuthentication(Configuration);
             services.AddMediatrConfiguration("Carz.IdentityService.API", "Carz.IdentityService.Domain", "Carz.IdentityService.Infrastructure");
+            services.AddSqlServer<IdentityUserDbContext>(Configuration);
 
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
-            services.AddDbContext<IdentityUserDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentitySqlServerDb")));
 
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ILoginService, LoginService>();
@@ -65,14 +66,34 @@ namespace Carz.IdentityService.API
             {
                 var dataContext = scope.ServiceProvider.GetRequiredService<IdentityUserDbContext>();
                 dataContext.Database.Migrate();
-
-                if(!dataContext.Roles.Any())
+                if (!dataContext.IdentityUsers.Any(x => x.Email == "admin@carz.com"))
                 {
-                    dataContext.Roles.AddRange(new Role[] { 
+                    dataContext.IdentityUsers.AddRange(new IdentityUser[] {
+                        new IdentityUser{ Email = "admin@carz.com", PasswordHash = "admin"}
+                    });
+                    dataContext.SaveChanges();
+                }
+
+                if (!dataContext.Roles.Any(x => x.Name == "Admin"))
+                {
+                    dataContext.Roles.AddRange(new Role[] {
                         new Role{ Name = "Admin", CreatedBy = System.Guid.Empty }
                     });
                     dataContext.SaveChanges();
                 }
+                var admin = dataContext.IdentityUsers.FirstOrDefault(u => u.Email == "admin@carz.com");
+                var role = dataContext.Roles.FirstOrDefault(r => r.Name == "Admin");
+
+                if (!dataContext.IdentityUserRoles.Any(x => x.IdentityUserId == admin.Id && x.RoleId == role.Id))
+                {
+                    dataContext.IdentityUserRoles.AddRange(new IdentityUserRole[] {
+                        new IdentityUserRole{IdentityUserId = admin.Id,
+                        RoleId = role.Id
+                        }
+                    });
+                    dataContext.SaveChanges();
+                }
+
             }
 
             app.UseHttpsRedirection();
