@@ -29,7 +29,7 @@ namespace Carz.AdvertisementService.API
         {
             services.AddAutoMapper( x => { x.AddProfile<AdMapper>(); x.AddProfile<BidMapper>(); });
 
-            services.AddSqlServer<AdvertisementDbContext>(Configuration);
+            services.AddScoped<AdvertisementDbContext>();
 
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
 

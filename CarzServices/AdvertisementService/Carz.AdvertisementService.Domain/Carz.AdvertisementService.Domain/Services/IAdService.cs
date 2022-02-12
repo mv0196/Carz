@@ -12,21 +12,21 @@ namespace Carz.AdvertisementService.Domain.Services
 {
     public interface IAdService
     {
-        Task<bool> BlockAd(BlockAdCommand command, CancellationToken token);
-        Task<bool> CloseAd(CloseAdCommand command, CancellationToken token);
-        Task<Advertisement> CreateAd(CreateAdCommand command, CancellationToken token);
-        Task<bool> DisableAd(DisableAdCommand command, CancellationToken token);
-        Task<bool> EnableAd(EnableAdCommand command, CancellationToken token);
-        Task<List<Advertisement>> GetActiveAdsForUser(GetActiveAdsForUserQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetActiveAds(GetActiveAdsQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetAdsForUser(GetAdsForUserQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetAllAds(GetAllAdsQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetBlockedAdsForUser(GetBlockedAdsForUserQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetBlockedAds(GetBlockedAdsQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetClosedAdsForUser(GetClosedAdsForUserQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetClosedAds(GetClosedAdsQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetDisabledAdsForUser(GetDisabledAdsForUserQuery query, CancellationToken token);
-        Task<List<Advertisement>> GetDisabledAds(GetDisabledAdsQuery query, CancellationToken token);
-        Task<Advertisement> UpdateAd(UpdateAdCommand command, CancellationToken token);
+        Task<bool> BlockAd(BlockAdCommand command, CancellationToken cancellationToken);
+        Task<bool> CloseAd(CloseAdCommand command, CancellationToken cancellationToken);
+        Task<Advertisement> CreateAd(CreateAdCommand command, CancellationToken cancellationToken);
+        Task<bool> DisableAd(DisableAdCommand command, CancellationToken cancellationToken);
+        Task<bool> EnableAd(EnableAdCommand command, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetActiveAdsForUser(GetActiveAdsForUserQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetActiveAds(GetActiveAdsQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetAdsForUser(GetAdsForUserQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetAllAds(GetAllAdsQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetBlockedAdsForUser(GetBlockedAdsForUserQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetBlockedAds(GetBlockedAdsQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetClosedAdsForUser(GetClosedAdsForUserQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetClosedAds(GetClosedAdsQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetDisabledAdsForUser(GetDisabledAdsForUserQuery query, CancellationToken cancellationToken);
+        Task<List<Advertisement>> GetDisabledAds(GetDisabledAdsQuery query, CancellationToken cancellationToken);
+        Task<Advertisement> UpdateAd(UpdateAdCommand command, CancellationToken cancellationToken);
     }
 }

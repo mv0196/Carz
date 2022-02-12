@@ -14,6 +14,7 @@ namespace Carz.AdvertisementService.Domain.Entities
         public string Status { get; set; }
         public string Ownership { get; set; }
         public double AskPrice { get; set; }
+        public Variant Variant { get; set; }
         public List<Bid> Bids { get; set; }
         public Guid Buyer { get; set; } = Guid.Empty;
         public bool Enabled { get; set; } = true;

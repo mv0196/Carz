@@ -13,14 +13,18 @@ namespace Carz.AdvertisementService.Services.Mongo.Contexts
     public class AdvertisementDbContext
     {
         private IMongoDatabase db;
+        private IMongoClient client;
         public AdvertisementDbContext(IConfiguration configuration)
         {
             var mongoConfig = new MongoDbConfiguration();
             configuration.Bind(nameof(mongoConfig), configuration);
-            var client = new MongoClient(mongoConfig.ConnectionString);
+            client = new MongoClient(mongoConfig.ConnectionString);
             db = client.GetDatabase(mongoConfig.DatabaseName);
         }
+        // Required for creating sessions for transactions
+        public IMongoClient Client => client;
 
+        // Collections 
         public IMongoCollection<Advertisement> Advertisements => db.GetCollection<Advertisement>("Advertisements");
         public IMongoCollection<Bid> Bids => db.GetCollection<Bid>("Bids");
         public IMongoCollection<HealthStatus> HealthStatuses => db.GetCollection<HealthStatus>("HealthStatuses");

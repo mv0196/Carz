@@ -12,6 +12,7 @@ namespace Carz.AdvertisementService.Domain.Commands.Advertisement
     {
         public Guid Id { get; set; }
         public Guid BidId { get; set; }
+        public Guid UserId { get; set; }
 
     }
 }

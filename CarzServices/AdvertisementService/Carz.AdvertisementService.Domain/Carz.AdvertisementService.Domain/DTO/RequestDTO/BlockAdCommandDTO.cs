@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Carz.AdvertisementService.Domain.DTO.RequestDTO
 {
-    public class BloackAdCommandDTO
+    public class BlockAdCommandDTO
     {
         public Guid Id { get; set; }
     }
