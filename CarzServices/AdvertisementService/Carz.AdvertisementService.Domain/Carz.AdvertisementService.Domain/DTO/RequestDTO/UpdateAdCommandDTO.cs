@@ -4,7 +4,7 @@ using System;
 namespace Carz.AdvertisementService.Domain.DTO.RequestDTO
 {
     // It do not have updatedBy because it will be later set in controller
-    class UpdateAdCommandDTO
+    public class UpdateAdCommandDTO
     {
         public Guid Id { get; set; }
         public string Description { get; set; }

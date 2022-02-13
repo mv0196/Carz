@@ -11,6 +11,6 @@ namespace Carz.AdvertisementService.Domain.Commands.Advertisement
     public class EnableAdCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

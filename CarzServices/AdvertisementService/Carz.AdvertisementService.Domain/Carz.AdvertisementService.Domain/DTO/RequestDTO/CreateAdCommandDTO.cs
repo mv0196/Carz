@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 namespace Carz.AdvertisementService.Domain.DTO.RequestDTO
 {
     // It do not have CreatedBy and UpdatedBy because it will be later set in controller by extracting from Token
-    class CreateAdCommandDTO
+    public class CreateAdCommandDTO
     {
-        public Guid UserId { get; set; }
         public string Description { get; set; }
         public string Status { get; set; }
         public string Ownership { get; set; }

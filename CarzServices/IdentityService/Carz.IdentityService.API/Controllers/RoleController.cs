@@ -31,14 +31,14 @@ namespace Carz.IdentityService.API.Controllers
         public async Task<IActionResult> Create([FromBody] CreateRoleCommand command)
         {
             StringValues adminIdValue = new StringValues("");
-            Request.Headers.TryGetValue("AdminId", out adminIdValue);
+            Request.Headers.TryGetValue("PerformedBy", out adminIdValue);
 
             string adminId = adminIdValue.ToString();
 
             Guid adminGuid = Guid.Empty;
             Guid.TryParse(adminId, out adminGuid);
 
-            command.AdminId = adminGuid;
+            command.PerformedBy = adminGuid;
 
             RoleResponse res = await _mediator.Send(command);
             if(res == null)

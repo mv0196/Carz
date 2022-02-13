@@ -75,7 +75,7 @@ namespace Carz.Common.Filters
 
             //means allowed, so continue
             //string body = await actionContext.Request.Content.ReadAsStringAsync();
-            actionContext.Request.Headers.Add("AdminId", Id.ToString());
+            actionContext.Request.Headers.Add("PerformedBy", Id.ToString());
             await base.OnAuthorizationAsync(actionContext, cancellationToken);
         }
     }

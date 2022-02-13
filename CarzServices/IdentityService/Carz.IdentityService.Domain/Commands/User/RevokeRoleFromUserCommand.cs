@@ -8,6 +8,6 @@ namespace Carz.IdentityService.Domain.Commands.User
         public Guid Id { get; set; }
         public Guid RoleId { get; set; }
         // Admin which is blocking
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

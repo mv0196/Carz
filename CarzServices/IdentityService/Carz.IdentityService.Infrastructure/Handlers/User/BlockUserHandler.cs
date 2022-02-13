@@ -21,9 +21,9 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
         {
             bool res = await _service.BlockUser(request, cancellationToken);
             if (res == false)
-                _logger.LogInformation($"unable to block user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"unable to block user : {request.Id} by {request.PerformedBy}");
             else
-                _logger.LogInformation($"User : {request.Id} blocked by {request.AdminId}");
+                _logger.LogInformation($"User : {request.Id} blocked by {request.PerformedBy}");
 
             return res;
         }

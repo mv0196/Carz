@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Carz.AdvertisementService.Domain\Carz.AdvertisementService.Domain\Carz.AdvertisementService.Domain.csproj" />
     <ProjectReference Include="..\..\Carz.AdvertisementService.Infrastructure\Carz.AdvertisementService.Infrastructure\Carz.AdvertisementService.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Carz.AdvertisementService.Services.Mongo\Carz.AdvertisementService.Services.Mongo\Carz.AdvertisementService.Services.Mongo.csproj" />

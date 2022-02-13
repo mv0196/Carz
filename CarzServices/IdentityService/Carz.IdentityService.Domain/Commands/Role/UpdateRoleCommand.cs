@@ -8,6 +8,6 @@ namespace Carz.IdentityService.Domain.Commands.Role
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

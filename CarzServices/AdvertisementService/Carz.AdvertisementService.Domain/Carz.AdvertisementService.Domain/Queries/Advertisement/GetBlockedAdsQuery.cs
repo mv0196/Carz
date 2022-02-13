@@ -7,6 +7,6 @@ namespace Carz.AdvertisementService.Domain.Queries.Advertisement
 {
     public class GetBlockedAdsQuery : IRequest<List<AdResponse>>
     {
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

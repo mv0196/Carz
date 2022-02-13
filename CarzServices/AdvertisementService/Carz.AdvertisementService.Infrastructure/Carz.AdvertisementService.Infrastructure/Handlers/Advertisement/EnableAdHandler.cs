@@ -29,11 +29,11 @@ namespace Carz.AdvertisementService.Infrastructure.Handlers.Advertisement
             bool res = await _service.EnableAd(request, cancellationToken);
             if (res)
             {
-                _logger.LogInformation("Advertisement {AdvertisementId} enabled by {UserId}", request.Id, request.AdminId);
+                _logger.LogInformation("Advertisement {AdvertisementId} enabled by {UserId}", request.Id, request.PerformedBy);
             }
             else
             {
-                _logger.LogInformation("Unable to enable Advertisement {AdvertisementId} by {UserId}", request.Id, request.AdminId);
+                _logger.LogInformation("Unable to enable Advertisement {AdvertisementId} by {UserId}", request.Id, request.PerformedBy);
             }
             return res;
         }

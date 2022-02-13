@@ -40,7 +40,7 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             // Already blocked
             if (ad.Blocked == true)
             {
-                _logger.LogInformation("Tried blocking Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already blocked", command.Id, command.AdminId);
+                _logger.LogInformation("Tried blocking Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already blocked", command.Id, command.PerformedBy);
                 return false;
             }
 
@@ -51,12 +51,12 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             if (updateResult.IsAcknowledged == true)
             {
                 // Success
-                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is blocked by User : {UserId}", command.Id, command.AdminId);
+                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is blocked by User : {UserId}", command.Id, command.PerformedBy);
                 return true;
             }
 
             // Update not acknowledged by MongoDb
-            _logger.LogInformation("Tried blocking Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.AdminId);
+            _logger.LogInformation("Tried blocking Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.PerformedBy);
             return false;
         }
 
@@ -74,7 +74,7 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             // Already closed
             if (ad.Closed == true)
             {
-                _logger.LogInformation("Tried closing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already closed", command.Id, command.UserId);
+                _logger.LogInformation("Tried closing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already closed", command.Id, command.ClosedBy);
                 return false;
             }
 
@@ -85,12 +85,12 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             if (updateResult.IsAcknowledged == true)
             {
                 // Success
-                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is closed by User : {UserId}", command.Id, command.UserId);
+                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is closed by User : {UserId}", command.Id, command.ClosedBy);
                 return true;
             }
 
             // Update not acknowledged by MongoDb
-            _logger.LogInformation("Tried closing Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.UserId);
+            _logger.LogInformation("Tried closing Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.ClosedBy);
             return false;
         }
 
@@ -116,7 +116,7 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             // Already disabled
             if (ad.Enabled == false)
             {
-                _logger.LogInformation("Tried closeing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already disabled", command.Id, command.UserId);
+                _logger.LogInformation("Tried closeing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already disabled", command.Id, command.DisabledBy);
                 return false;
             }
 
@@ -127,12 +127,12 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             if (updateResult.IsAcknowledged == true)
             {
                 // Success
-                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is disabled by User : {UserId}", command.Id, command.UserId);
+                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is disabled by User : {UserId}", command.Id, command.DisabledBy);
                 return true;
             }
 
             // Update not acknowledged by MongoDb
-            _logger.LogInformation("Tried disabling Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.UserId);
+            _logger.LogInformation("Tried disabling Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.DisabledBy);
             return false;
         }
 
@@ -150,7 +150,7 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             // Already enabled
             if (ad.Enabled == true)
             {
-                _logger.LogInformation("Tried closeing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already enabled", command.Id, command.AdminId);
+                _logger.LogInformation("Tried closeing Advertisement with Id : {AdvertisementId} by User : {UserId} but it is already enabled", command.Id, command.PerformedBy);
                 return false;
             }
 
@@ -161,12 +161,12 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
             if (updateResult.IsAcknowledged == true)
             {
                 // Success
-                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is enabled by User : {UserId}", command.Id, command.AdminId);
+                _logger.LogInformation("Advertisement with Id : {AdvertisementId} is enabled by User : {UserId}", command.Id, command.PerformedBy);
                 return true;
             }
 
             // Update not acknowledged by MongoDb
-            _logger.LogInformation("Tried enabling Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.UserId);
+            _logger.LogInformation("Tried enabling Advertisement with Id : {AdvertisementId} by User : {UserId} but result is not acknowledged", command.Id, command.PerformedBy);
             return false;
         }
 

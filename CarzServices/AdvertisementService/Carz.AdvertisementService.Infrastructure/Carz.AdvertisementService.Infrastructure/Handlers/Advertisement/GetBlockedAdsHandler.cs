@@ -28,7 +28,7 @@ namespace Carz.AdvertisementService.Infrastructure.Handlers.Advertisement
         public async Task<List<AdResponse>> Handle(GetBlockedAdsQuery request, CancellationToken cancellationToken)
         {
             List<Domain.Entities.Advertisement> ads = await _service.GetBlockedAds(request, cancellationToken);
-            _logger.LogInformation("Got {Advertisements} blocked advertisements by User: {AdminId}", ads.Count, request.AdminId);
+            _logger.LogInformation("Got {Advertisements} blocked advertisements by User: {PerformedBy}", ads.Count, request.PerformedBy);
             return _mapper.Map<List<AdResponse>>(ads);
         }
     }

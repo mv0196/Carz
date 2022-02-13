@@ -28,7 +28,7 @@ namespace Carz.AdvertisementService.Infrastructure.Handlers.Advertisement
         public async Task<List<AdResponse>> Handle(GetDisabledAdsQuery request, CancellationToken cancellationToken)
         {
             List<Domain.Entities.Advertisement> ads = await _service.GetDisabledAds(request, cancellationToken);
-            _logger.LogInformation("Got {Advertisements} Disabled advertisements by User: {AdminId}", ads.Count, request.AdminId);
+            _logger.LogInformation("Got {Advertisements} Disabled advertisements by User: {PerformedBy}", ads.Count, request.PerformedBy);
             return _mapper.Map<List<AdResponse>>(ads);
         }
     }

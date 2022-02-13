@@ -29,9 +29,9 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
         {
             bool res = await _service.RevokeRoleFromUser(request, cancellationToken);
             if (res == false)
-                _logger.LogInformation($"unable to revoke role : {request.RoleId} from user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"unable to revoke role : {request.RoleId} from user : {request.Id} by {request.PerformedBy}");
             else
-                _logger.LogInformation($"Role : {request.RoleId} revoked from user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"Role : {request.RoleId} revoked from user : {request.Id} by {request.PerformedBy}");
 
             return res;
         }

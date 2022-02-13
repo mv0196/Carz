@@ -28,7 +28,7 @@ namespace Carz.AdvertisementService.Infrastructure.Handlers.Advertisement
         public async Task<List<AdResponse>> Handle(GetClosedAdsQuery request, CancellationToken cancellationToken)
         {
             List<Domain.Entities.Advertisement> ads = await _service.GetClosedAds(request, cancellationToken);
-            _logger.LogInformation("Got {Advertisements} closed advertisements by User: {AdminId}", ads.Count, request.AdminId);
+            _logger.LogInformation("Got {Advertisements} closed advertisements by User: {PerformedBy}", ads.Count, request.PerformedBy);
             return _mapper.Map<List<AdResponse>>(ads);
         }
     }

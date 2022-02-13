@@ -26,10 +26,10 @@ namespace Carz.IdentityService.Infrastructure.Handlers.Role
             Domain.Entities.Role role = await _service.UpdateRole(request, cancellationToken);
             if(role == null)
             {
-                _logger.LogInformation("Unable to update Role with Id: {RoleId} by User: {IdentityId}", request.Id, request.AdminId);
+                _logger.LogInformation("Unable to update Role with Id: {RoleId} by User: {IdentityId}", request.Id, request.PerformedBy);
                 return null;
             }
-            _logger.LogInformation("Updated Role with Id: {RoleId} to Name: {RoleName} by User: {IdentityId}", request.Id, request.Name, request.AdminId);
+            _logger.LogInformation("Updated Role with Id: {RoleId} to Name: {RoleName} by User: {IdentityId}", request.Id, request.Name, request.PerformedBy);
             return _mapper.Map<RoleResponse>(role);
         }
     }

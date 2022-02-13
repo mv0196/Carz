@@ -29,11 +29,11 @@ namespace Carz.AdvertisementService.Infrastructure.Handlers.Advertisement
             bool res = await _service.BlockAd(request, cancellationToken);
             if (res)
             {
-                _logger.LogInformation("Advertisement {AdvertisementId} blocked by {UserId}", request.Id, request.AdminId);
+                _logger.LogInformation("Advertisement {AdvertisementId} blocked by {UserId}", request.Id, request.PerformedBy);
             }
             else
             {
-                _logger.LogInformation("Unable to block Advertisement {AdvertisementId} by {UserId}", request.Id, request.AdminId);
+                _logger.LogInformation("Unable to block Advertisement {AdvertisementId} by {UserId}", request.Id, request.PerformedBy);
             }
             return res;
         }

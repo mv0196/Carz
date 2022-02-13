@@ -6,6 +6,6 @@ namespace Carz.IdentityService.Domain.Commands.Role
     public class DeleteRoleCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

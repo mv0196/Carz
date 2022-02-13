@@ -9,6 +9,6 @@ namespace Carz.IdentityService.Domain.Commands.Role
     {
         public string Name { get; set; }
         [JsonIgnore]
-        public Guid AdminId { get; set; }
+        public Guid PerformedBy { get; set; }
     }
 }

@@ -29,7 +29,7 @@ namespace Carz.IdentityService.Services.SQL.Services
             role = new Role
             {
                 Name = command.Name,
-                CreatedBy = command.AdminId
+                CreatedBy = command.PerformedBy
             };
 
             await _context.Roles.AddAsync(role);

@@ -23,9 +23,9 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
         {
             bool res = await _service.AssignRoleToUser(request, cancellationToken);
             if (res == false)
-                _logger.LogInformation($"unable to assign role : {request.RoleId} to user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"unable to assign role : {request.RoleId} to user : {request.Id} by {request.PerformedBy}");
             else
-                _logger.LogInformation($"Role : {request.RoleId} assigned to user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"Role : {request.RoleId} assigned to user : {request.Id} by {request.PerformedBy}");
 
             return res;
         }

@@ -30,10 +30,10 @@ namespace Carz.IdentityService.Infrastructure.Handlers.Role
             Domain.Entities.Role role = await _service.CreateRole(request, cancellationToken);
             if(role == null)
             {
-                _logger.LogInformation("Unable to create role with Name: {Name} by User: {IdentityId}", request.Name, request.AdminId);
+                _logger.LogInformation("Unable to create role with Name: {Name} by User: {IdentityId}", request.Name, request.PerformedBy);
                 return null;
             }
-            _logger.LogInformation("Role with Name: {Name} created by User: {IdentityId}", request.Name, request.AdminId);
+            _logger.LogInformation("Role with Name: {Name} created by User: {IdentityId}", request.Name, request.PerformedBy);
             return _mapper.Map<RoleResponse>(role);
             
         }

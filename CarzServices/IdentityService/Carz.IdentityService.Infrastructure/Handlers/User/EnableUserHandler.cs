@@ -22,9 +22,9 @@ namespace Carz.IdentityService.Infrastructure.Handlers.User
         {
             bool res = await _service.EnableUser(request, cancellationToken);
             if (res == false)
-                _logger.LogInformation($"unable to Enable user : {request.Id} by {request.AdminId}");
+                _logger.LogInformation($"unable to Enable user : {request.Id} by {request.PerformedBy}");
             else
-                _logger.LogInformation($"User : {request.Id} Enabled by {request.AdminId}");
+                _logger.LogInformation($"User : {request.Id} Enabled by {request.PerformedBy}");
 
             return res;
         }
