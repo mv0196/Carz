@@ -181,5 +181,18 @@ namespace Carz.AdvertisementService.API.Controllers
             return Ok(ads);
         }
 
+        [HttpPut("update")]
+        public async Task<IActionResult> UpdateAd(UpdateAdCommandDTO request, CancellationToken cancellationToken)
+        {
+            UpdateAdCommand command = _mapper.Map<UpdateAdCommand>(request);
+            command.UpdatedBy = GetUserIdFromContext(); ;
+            AdResponse res = await _mediator.Send(command, cancellationToken);
+            if (res == null)
+            {
+                return BadRequest(res);
+            }
+            return Ok(res);
+        }
+
     }
 }
