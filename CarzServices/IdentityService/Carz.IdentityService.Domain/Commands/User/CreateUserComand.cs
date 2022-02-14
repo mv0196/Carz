@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Carz.IdentityService.Domain.Responses.User;
+using MediatR;
 
-namespace Carz.IdentityService.Domain.Commands
+namespace Carz.IdentityService.Domain.Commands.User
 {
-    class CreateUserComand
+    public class CreateUserComand : IRequest<UserResponse>
     {
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

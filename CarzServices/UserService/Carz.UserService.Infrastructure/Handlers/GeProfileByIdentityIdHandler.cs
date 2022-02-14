@@ -22,7 +22,7 @@ namespace Carz.UserService.Infrastructure.Handlers
             _service = service;
             _mapper = mapper;
         }
-        public async Task<ProfileResponse> Handle(GetProfileByIdentityIdQuery request, CancellationToken cancellationToken)
+        public async Task<ProfileResponse> Handle(GetProfileByIdentityIdQuery request, CancellationToken cancellationToken = default)
         {
             User user = await _service.GetProfileByIdentityId(request.IdentityId, cancellationToken);
             if (user != null)

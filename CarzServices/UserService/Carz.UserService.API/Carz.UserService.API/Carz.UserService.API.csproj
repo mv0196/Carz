@@ -7,12 +7,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.13" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Carz.Common\Carz.Common\Carz.Common.csproj" />
     <ProjectReference Include="..\..\Carz.UserService.Infrastructure\Carz.UserService.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Carz.UserService.Services.SQL\Carz.UserService.Services.SQL.csproj" />
   </ItemGroup>

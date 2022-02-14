@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Responses\" />
-    <Folder Include="Queries\" />
-    <Folder Include="Services\" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
   </ItemGroup>
 
 </Project>

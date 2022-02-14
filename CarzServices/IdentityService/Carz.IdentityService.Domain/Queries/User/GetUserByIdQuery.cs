@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Carz.IdentityService.Domain.Responses.User;
+using MediatR;
+using System;
 
-namespace Carz.IdentityService.Domain.Queries
+namespace Carz.IdentityService.Domain.Queries.User
 {
-    class GetUserById
+    public class GetUserByIdQuery : IRequest<UserResponse>
     {
+        public Guid Id { get; set; }
     }
 }

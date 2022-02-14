@@ -1,0 +1,134 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Snappy\lib\linux\libsnappy64.so" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Snappy\lib\osx\libsnappy64.dylib" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Snappy\lib\win\snappy32.dll" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Snappy\lib\win\snappy64.dll" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Zstandard\lib\linux\libzstd.so" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Zstandard\lib\osx\libzstd.dylib" />
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\contentFiles\any\netstandard2.1\Core\Compression\Zstandard\lib\win\libzstd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.14.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy32.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy32.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libzstd.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libzstd.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libzstd.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libzstd.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\libzstd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\libzstd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libsnappy64.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libsnappy64.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libsnappy64.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libsnappy64.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy64.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy32.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\snappy32.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libzstd.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libzstd.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libzstd.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libzstd.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\libzstd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\win\native\libzstd.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libsnappy64.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\linux\native\libsnappy64.so" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libsnappy64.dylib" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mukul Verma\.nuget\packages\mongodb.driver.core\2.14.1\build\..\runtimes\osx\native\libsnappy64.dylib" />
+  </ItemGroup>
+
+</Project>

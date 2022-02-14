@@ -25,7 +25,7 @@ namespace Carz.UserService.Infrastructure.Handlers
             _service = service;
             _mapper = mapper;
         }
-        public async Task<ProfileResponse> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+        public async Task<ProfileResponse> Handle(UpdateProfileCommand request, CancellationToken cancellationToken = default)
         {
             User updatedUser = _mapper.Map<User>(request);
             User user = await _service.UpdateProfile(request.IdentityId, updatedUser, cancellationToken);
