@@ -2,13 +2,12 @@
 using MediatR;
 using System;
 
-namespace Carz.IdentityService.Domain.Commands.User
+namespace Carz.IdentityService.Domain.DTO.User
 {
-    public class UpdateUserCommand : IRequest<UserResponse>
+    public class UpdateUserCommandDTO : IRequest<UserResponse>
     {
         public Guid Id { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Guid UpdatedBy { get; set; }
     }
 }

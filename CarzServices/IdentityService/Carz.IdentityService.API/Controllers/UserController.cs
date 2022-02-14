@@ -1,5 +1,7 @@
-﻿using Carz.Common.Filters;
+﻿using AutoMapper;
+using Carz.Common.Filters;
 using Carz.IdentityService.Domain.Commands.User;
+using Carz.IdentityService.Domain.DTO.User;
 using Carz.IdentityService.Domain.Queries.User;
 using Carz.IdentityService.Domain.Responses.Role;
 using Carz.IdentityService.Domain.Responses.User;
@@ -7,7 +9,9 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Carz.IdentityService.API.Controllers
@@ -18,28 +22,29 @@ namespace Carz.IdentityService.API.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private readonly IMediator _mediator;
+        private readonly IMapper _mapper;
 
-        public UserController(ILogger<UserController> logger, IMediator mediator)
+        public UserController(ILogger<UserController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
             _mediator = mediator;
+            _mapper = mapper;
         }
 
-        /*
-         *      AssignRoleToUserHandler.cs
-                BlockUserHandler.cs
-                CreateUserHandler.cs
-                DisableUserHandler.cs
-                EnableUserHandler.cs
-                ForgotPasswordHandler.cs
-                GetUserByIdHandler.cs
-                GetUserRolesHandler.cs
-                RevokeRoleFromUserHandler.cs
-                UpdateUserHandler.cs
-         */
-        [HttpPost("assign")]
-        public async Task<IActionResult> AssignRoleToUser([FromBody] AssignRoleToUserCommand command)
+        [NonAction]
+        private Guid GetUserIdFromContext()
         {
+            Guid userId = Guid.Empty;
+            Guid.TryParse(HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value, out userId);
+            return userId;
+        }
+
+
+        [HttpPost("assign")]
+        public async Task<IActionResult> AssignRoleToUser([FromBody] AssignRoleToUserCommandDTO request)
+        {
+            AssignRoleToUserCommand command = _mapper.Map<AssignRoleToUserCommand>(request);
+            command.AssignedBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
                 return BadRequest();
@@ -48,8 +53,10 @@ namespace Carz.IdentityService.API.Controllers
 
         [HttpPost("block")]
         [Authorize("Admin")]
-        public async Task<IActionResult> BlockUser([FromBody] BlockUserCommand command)
+        public async Task<IActionResult> BlockUser([FromBody] BlockUserCommandDTO request)
         {
+            BlockUserCommand command = _mapper.Map<BlockUserCommand>(request);
+            command.BlockedBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
                 return BadRequest();
@@ -67,8 +74,10 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("disable/{Id}")]
-        public async Task<IActionResult> DisableUser([FromRoute] DisableUserCommand command)
+        public async Task<IActionResult> DisableUser([FromRoute] DisableUserCommandDTO request)
         {
+            DisableUserCommand command = _mapper.Map<DisableUserCommand>(request);
+            command.DisabledBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
                 return BadRequest();
@@ -76,9 +85,11 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("enable/{Id}")]
-        [AuthorizationFilter("Admin")]
-        public async Task<IActionResult> EnableUser([FromRoute] EnableUserCommand command)
+        [Authorize("Admin")]
+        public async Task<IActionResult> EnableUser([FromRoute] EnableUserCommandDTO request)
         {
+            EnableUserCommand command = _mapper.Map<EnableUserCommand>(request);
+            command.EnabledBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
                 return BadRequest();
@@ -122,8 +133,10 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPost("revoke")]
-        public async Task<IActionResult> RevokeRoleFromUser([FromBody] RevokeRoleFromUserCommand command)
+        public async Task<IActionResult> RevokeRoleFromUser([FromBody] RevokeRoleFromUserCommandDTO rquest)
         {
+            RevokeRoleFromUserCommand command = _mapper.Map<RevokeRoleFromUserCommand>(Request);
+            command.RevokedBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
                 return BadRequest();
@@ -131,8 +144,11 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> Update([FromBody] UpdateUserCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateUserCommandDTO request)
         {
+            UpdateUserCommand command = _mapper.Map<UpdateUserCommand>(request);
+            command.UpdatedBy = GetUserIdFromContext();
+            command.UpdatedBy = GetUserIdFromContext();
             UserResponse res = await _mediator.Send(command);
             if (res == null)
                 return NotFound();

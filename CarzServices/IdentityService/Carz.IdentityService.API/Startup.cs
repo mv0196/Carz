@@ -59,9 +59,6 @@ namespace Carz.IdentityService.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carz.IdentityService.API v1"));
             }
 
-            app.UseAuthentication();
-            app.UseAuthentication();
-
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 var dataContext = scope.ServiceProvider.GetRequiredService<IdentityUserDbContext>();
@@ -74,6 +71,13 @@ namespace Carz.IdentityService.API
                     dataContext.SaveChanges();
                 }
 
+                if (!dataContext.Roles.Any(x => x.Name == "User"))
+                {
+                    dataContext.Roles.AddRange(new Role[] {
+                        new Role{ Name = "User", CreatedBy = System.Guid.Empty }
+                    });
+                    dataContext.SaveChanges();
+                }
                 if (!dataContext.Roles.Any(x => x.Name == "Admin"))
                 {
                     dataContext.Roles.AddRange(new Role[] {
@@ -82,13 +86,17 @@ namespace Carz.IdentityService.API
                     dataContext.SaveChanges();
                 }
                 var admin = dataContext.IdentityUsers.FirstOrDefault(u => u.Email == "admin@carz.com");
-                var role = dataContext.Roles.FirstOrDefault(r => r.Name == "Admin");
+                var adminRole = dataContext.Roles.FirstOrDefault(r => r.Name == "Admin");
+                var userRole = dataContext.Roles.FirstOrDefault(r => r.Name == "Admin");
 
-                if (!dataContext.IdentityUserRoles.Any(x => x.IdentityUserId == admin.Id && x.RoleId == role.Id))
+                if (!dataContext.IdentityUserRoles.Any(x => x.IdentityUserId == admin.Id && x.RoleId == adminRole.Id))
                 {
                     dataContext.IdentityUserRoles.AddRange(new IdentityUserRole[] {
                         new IdentityUserRole{IdentityUserId = admin.Id,
-                        RoleId = role.Id
+                        RoleId = adminRole.Id
+                        },
+                        new IdentityUserRole{IdentityUserId = admin.Id,
+                        RoleId = userRole.Id
                         }
                     });
                     dataContext.SaveChanges();
@@ -99,6 +107,8 @@ namespace Carz.IdentityService.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

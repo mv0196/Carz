@@ -1,4 +1,6 @@
-﻿using Carz.IdentityService.Domain.Commands.Role;
+﻿using AutoMapper;
+using Carz.IdentityService.Domain.Commands.Role;
+using Carz.IdentityService.Domain.DTO.Role;
 using Carz.IdentityService.Domain.Queries.Role;
 using Carz.IdentityService.Domain.Responses.Role;
 using MediatR;
@@ -20,25 +22,29 @@ namespace Carz.IdentityService.API.Controllers
     {
         private readonly ILogger<RoleController> _logger;
         private readonly IMediator _mediator;
-        public RoleController(ILogger<RoleController> logger, IMediator mediator)
+        private readonly IMapper _mapper;
+        public RoleController(ILogger<RoleController> logger, IMediator mediator, IMapper mapper)
         {
             _logger = logger;
             _mediator = mediator;
+            _mapper = mapper;
         }
+
+        [NonAction]
+        private Guid GetUserIdFromContext()
+        {
+            Guid userId = Guid.Empty;
+            Guid.TryParse(HttpContext.User.Claims.FirstOrDefault(c => c.Type == "Id").Value, out userId);
+            return userId;
+        }
+
 
         [HttpPost("create")]
         [Authorize("Admin")]
-        public async Task<IActionResult> Create([FromBody] CreateRoleCommand command)
+        public async Task<IActionResult> Create([FromBody] CreateRoleCommandDTO request)
         {
-            StringValues adminIdValue = new StringValues("");
-            Request.Headers.TryGetValue("PerformedBy", out adminIdValue);
-
-            string adminId = adminIdValue.ToString();
-
-            Guid adminGuid = Guid.Empty;
-            Guid.TryParse(adminId, out adminGuid);
-
-            command.PerformedBy = adminGuid;
+            CreateRoleCommand command = _mapper.Map<CreateRoleCommand>(request);
+            command.CreatedBy = GetUserIdFromContext();
 
             RoleResponse res = await _mediator.Send(command);
             if(res == null)
@@ -49,8 +55,10 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpDelete("delete")]
-        public async Task<IActionResult> Delete([FromBody] DeleteRoleCommand command)
+        public async Task<IActionResult> Delete([FromBody] DeleteRoleCommandDTO request)
         {
+            DeleteRoleCommand command = _mapper.Map<DeleteRoleCommand>(request);
+            command.DeletedBy = GetUserIdFromContext();
             bool res = await _mediator.Send(command);
             if (res == false)
             {
@@ -67,8 +75,10 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateRoleCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateRoleCommandDTO request)
         {
+            UpdateRoleCommand command = _mapper.Map<UpdateRoleCommand>(request);
+            command.UpdatedBy = GetUserIdFromContext();
             RoleResponse res = await _mediator.Send(command);
             if(res == null)
             {

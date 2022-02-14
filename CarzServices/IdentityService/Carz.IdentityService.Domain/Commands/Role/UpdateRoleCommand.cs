@@ -1,6 +1,7 @@
 ﻿using Carz.IdentityService.Domain.Responses.Role;
 using MediatR;
 using System;
+using System.Text.Json.Serialization;
 
 namespace Carz.IdentityService.Domain.Commands.Role
 {
@@ -8,6 +9,6 @@ namespace Carz.IdentityService.Domain.Commands.Role
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public Guid PerformedBy { get; set; }
+        public Guid UpdatedBy { get; set; }
     }
 }

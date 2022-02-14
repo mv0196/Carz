@@ -14,9 +14,9 @@ namespace Carz.Common.DependencyInjection
     {
         public static IServiceCollection AddSqlServer<T>(this IServiceCollection services, IConfiguration configuration) where T : DbContext
         {
-            var sqlServerConfig = new SqlServerConfiguration();
-            configuration.Bind(nameof(sqlServerConfig), configuration);
-            services.AddDbContext<T>(options => options.UseSqlServer(sqlServerConfig.ConnectionString));
+            var sqlServerConfiguration = new SqlServerConfiguration();
+            configuration.Bind(nameof(sqlServerConfiguration), sqlServerConfiguration);
+            services.AddDbContext<T>(options => options.UseSqlServer(sqlServerConfiguration.ConnectionString));
             return services;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Carz.AdvertisementService.Domain.Commands.Advertisement;
 using Carz.AdvertisementService.Domain.DTO.RequestDTO;
+using Carz.AdvertisementService.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

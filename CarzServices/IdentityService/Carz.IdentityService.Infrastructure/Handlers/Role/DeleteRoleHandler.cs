@@ -29,10 +29,10 @@ namespace Carz.IdentityService.Infrastructure.Handlers.Role
             bool res = await _service.DeleteRole(request, cancellationToken);
             if (res == false)
             {
-                _logger.LogInformation("Unable to delete role with Id: {RoleId} by User: {IdentityId}", request.Id, request.PerformedBy);
+                _logger.LogInformation("Unable to delete role with Id: {RoleId} by User: {IdentityId}", request.Id, request.DeletedBy);
                 return res;
             }
-            _logger.LogInformation("Role with Id: {RoleId} deleted by User: {IdentityId}", request.Id, request.PerformedBy);
+            _logger.LogInformation("Role with Id: {RoleId} deleted by User: {IdentityId}", request.Id, request.DeletedBy);
             return res;
         }
     }

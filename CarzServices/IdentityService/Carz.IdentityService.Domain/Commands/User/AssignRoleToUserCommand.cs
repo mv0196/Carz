@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using System;
+using System.Text.Json.Serialization;
 
 namespace Carz.IdentityService.Domain.Commands.User
 {
@@ -10,6 +11,6 @@ namespace Carz.IdentityService.Domain.Commands.User
         public Guid RoleId { get; set; }
 
         // Admin which is blocking
-        public Guid PerformedBy { get; set; }
+        public Guid AssignedBy { get; set; }
     }
 }

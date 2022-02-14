@@ -3,11 +3,10 @@ using MediatR;
 using System;
 using System.Text.Json.Serialization;
 
-namespace Carz.IdentityService.Domain.Commands.Role
+namespace Carz.IdentityService.Domain.DTO.Role
 {
-    public class CreateRoleCommand : IRequest<RoleResponse>
+    public class CreateRoleCommandDTO : IRequest<RoleResponse>
     {
         public string Name { get; set; }
-        public Guid CreatedBy { get; set; }
     }
 }
