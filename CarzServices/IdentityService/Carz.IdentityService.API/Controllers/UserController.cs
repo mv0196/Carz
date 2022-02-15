@@ -6,6 +6,7 @@ using Carz.IdentityService.Domain.Queries.User;
 using Carz.IdentityService.Domain.Responses.Role;
 using Carz.IdentityService.Domain.Responses.User;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -18,6 +19,7 @@ namespace Carz.IdentityService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly ILogger<UserController> _logger;
@@ -41,6 +43,7 @@ namespace Carz.IdentityService.API.Controllers
 
 
         [HttpPost("assign")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AssignRoleToUser([FromBody] AssignRoleToUserCommandDTO request)
         {
             AssignRoleToUserCommand command = _mapper.Map<AssignRoleToUserCommand>(request);
@@ -51,8 +54,8 @@ namespace Carz.IdentityService.API.Controllers
             return Ok();
         }
 
-        [HttpPost("block")]
-        [Authorize("Admin")]
+        [HttpGet("block/{Id}")]
+        [Authorize(Roles = "Admin", AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> BlockUser([FromBody] BlockUserCommandDTO request)
         {
             BlockUserCommand command = _mapper.Map<BlockUserCommand>(request);
@@ -65,6 +68,7 @@ namespace Carz.IdentityService.API.Controllers
 
 
         [HttpPost("create")]
+        [AllowAnonymous]
         public async Task<IActionResult> Create([FromBody] CreateUserComand command)
         {
             UserResponse res = await _mediator.Send(command);
@@ -74,6 +78,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("disable/{Id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DisableUser([FromRoute] DisableUserCommandDTO request)
         {
             DisableUserCommand command = _mapper.Map<DisableUserCommand>(request);
@@ -85,7 +90,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("enable/{Id}")]
-        [Authorize("Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EnableUser([FromRoute] EnableUserCommandDTO request)
         {
             EnableUserCommand command = _mapper.Map<EnableUserCommand>(request);
@@ -123,7 +128,7 @@ namespace Carz.IdentityService.API.Controllers
             return Ok(res);
         }
 
-        [HttpGet("userroles/{Id}")]
+        [HttpGet("roles/{Id}")]
         public async Task<IActionResult> GetUserRoles(GetUserRolesQuery query)
         {
             List<RoleResponse> roles = await _mediator.Send(query);
@@ -133,6 +138,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpPost("revoke")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> RevokeRoleFromUser([FromBody] RevokeRoleFromUserCommandDTO rquest)
         {
             RevokeRoleFromUserCommand command = _mapper.Map<RevokeRoleFromUserCommand>(Request);
@@ -158,3 +164,4 @@ namespace Carz.IdentityService.API.Controllers
 
     }
 }
+    

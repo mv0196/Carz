@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Serilog;
 using MediatR;
 using Carz.Common.DependencyInjection;
+using System.Reflection;
 
 namespace Carz.UserService.API
 {
@@ -28,6 +28,8 @@ namespace Carz.UserService.API
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
 
             services.AddAutoMapper(x => { x.AddProfile<ProfileMapper>(); });
+            
+            services.AddCommonJwtAuthentication(Configuration);
 
             services.AddMediatR(typeof(Startup));
 
@@ -36,10 +38,7 @@ namespace Carz.UserService.API
             services.AddAuthorizationFilter();
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.UserService.API", Version = "v1" });
-            });
+            services.AddSwaggerConfiguration(Assembly.GetExecutingAssembly().FullName.Split(',')[0]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,6 +62,8 @@ namespace Carz.UserService.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

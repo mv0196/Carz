@@ -1,4 +1,3 @@
-using Carz.Common.Configuration;
 using Carz.Common.DependencyInjection;
 using Carz.IdentityService.Domain.Entities;
 using Carz.IdentityService.Domain.Services;
@@ -11,9 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Linq;
+using System.Reflection;
 
 namespace Carz.IdentityService.API
 {
@@ -40,13 +39,10 @@ namespace Carz.IdentityService.API
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IUserService, Services.SQL.Services.UserService>();
 
-            services.AddAuthorizationFilter();
+            //services.AddAuthorizationFilter();
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.IdentityService.API", Version = "v1" });
-            });
+            services.AddSwaggerConfiguration(Assembly.GetExecutingAssembly().FullName.Split(',')[0]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

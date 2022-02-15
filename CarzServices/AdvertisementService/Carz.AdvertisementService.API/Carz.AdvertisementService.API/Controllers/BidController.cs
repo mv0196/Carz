@@ -4,6 +4,7 @@ using Carz.AdvertisementService.Domain.DTO.RequestDTO.Bid;
 using Carz.AdvertisementService.Domain.Queries.Bid;
 using Carz.AdvertisementService.Domain.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,6 +17,7 @@ namespace Carz.AdvertisementService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class BidController : ControllerBase
     {
         private readonly ILogger<BidController> _logger;

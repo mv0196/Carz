@@ -18,6 +18,7 @@ namespace Carz.IdentityService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class RoleController : ControllerBase
     {
         private readonly ILogger<RoleController> _logger;
@@ -40,7 +41,6 @@ namespace Carz.IdentityService.API.Controllers
 
 
         [HttpPost("create")]
-        [Authorize("Admin")]
         public async Task<IActionResult> Create([FromBody] CreateRoleCommandDTO request)
         {
             CreateRoleCommand command = _mapper.Map<CreateRoleCommand>(request);
@@ -68,6 +68,7 @@ namespace Carz.IdentityService.API.Controllers
         }
 
         [HttpGet("getAll")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll([FromBody] GetAllRolesQuery query)
         {
             List<RoleResponse> res = await _mediator.Send(query);

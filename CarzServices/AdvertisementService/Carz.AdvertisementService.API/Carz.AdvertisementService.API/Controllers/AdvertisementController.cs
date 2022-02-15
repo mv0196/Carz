@@ -5,6 +5,7 @@ using Carz.AdvertisementService.Domain.Entities;
 using Carz.AdvertisementService.Domain.Queries.Advertisement;
 using Carz.AdvertisementService.Domain.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,6 +18,7 @@ namespace Carz.AdvertisementService.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AdvertisementController : ControllerBase
     {
         private readonly ILogger<AdvertisementController> _logger;
@@ -39,6 +41,7 @@ namespace Carz.AdvertisementService.API.Controllers
         }
 
         [HttpGet("block/{Id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> BlockAd(BlockAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             Guid userId = GetUserIdFromContext();
@@ -51,7 +54,7 @@ namespace Carz.AdvertisementService.API.Controllers
             return Ok(res);
         }
 
-        [HttpPost("close/")]
+        [HttpPost("close")]
         public async Task<IActionResult> CloseAd(CloseAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             Guid userId = GetUserIdFromContext();
@@ -65,7 +68,7 @@ namespace Carz.AdvertisementService.API.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<IActionResult> Create(CreateAdCommandDTO request, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create(CreateAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             Guid userId = GetUserIdFromContext();
             CreateAdCommand command = _mapper.Map<CreateAdCommand>(request);
@@ -79,7 +82,7 @@ namespace Carz.AdvertisementService.API.Controllers
             return Created($"{Request.Path}/{res.Id}", res);
         }
 
-        [HttpPost("disable/")]
+        [HttpGet("disable/{Id}")]
         public async Task<IActionResult> DisableAd(DisableAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             Guid userId = GetUserIdFromContext();
@@ -93,7 +96,7 @@ namespace Carz.AdvertisementService.API.Controllers
             return Ok(res);
         }
 
-        [HttpPost("enable/")]
+        [HttpGet("enable/{Id}")]
         public async Task<IActionResult> EnableAd(EnableAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             Guid userId = GetUserIdFromContext();
@@ -108,7 +111,7 @@ namespace Carz.AdvertisementService.API.Controllers
         }
 
         [HttpGet("active/user/{UserId}")]
-        public async Task<IActionResult> GetActiveAdsForUser(GetActiveAdsForUserQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetActiveAdsForUser(GetActiveAdsForUserQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
@@ -116,28 +119,28 @@ namespace Carz.AdvertisementService.API.Controllers
 
 
         [HttpGet("active")]
-        public async Task<IActionResult> GetActiveAds(GetActiveAdsQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetActiveAds(GetActiveAdsQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpGet("user/{UserId}")]
-        public async Task<IActionResult> GetAdsForUser(GetAdsForUserQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAdsForUser(GetAdsForUserQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAllAds(GetAllAdsQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllAds(GetAllAdsQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpGet("blocked/user/{UserId}")]
-        public async Task<IActionResult> GetBlockedAdsForUser(GetBlockedAdsForUserQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetBlockedAdsForUser(GetBlockedAdsForUserQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
@@ -145,14 +148,15 @@ namespace Carz.AdvertisementService.API.Controllers
 
 
         [HttpGet("blocked")]
-        public async Task<IActionResult> GetBlockedAds(GetBlockedAdsQuery query, CancellationToken cancellationToken)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetBlockedAds(GetBlockedAdsQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpGet("closed/user/{UserId}")]
-        public async Task<IActionResult> GetClosedAdsForUser(GetClosedAdsForUserQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetClosedAdsForUser(GetClosedAdsForUserQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
@@ -160,14 +164,15 @@ namespace Carz.AdvertisementService.API.Controllers
 
 
         [HttpGet("closed")]
-        public async Task<IActionResult> GetClosedAds(GetClosedAdsQuery query, CancellationToken cancellationToken)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetClosedAds(GetClosedAdsQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpGet("disabled/user/{UserId}")]
-        public async Task<IActionResult> GetDisabledAdsForUser(GetDisabledAdsForUserQuery query, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetDisabledAdsForUser(GetDisabledAdsForUserQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
@@ -175,14 +180,15 @@ namespace Carz.AdvertisementService.API.Controllers
 
 
         [HttpGet("disabled")]
-        public async Task<IActionResult> GetDisabledAds(GetDisabledAdsQuery query, CancellationToken cancellationToken)
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> GetDisabledAds(GetDisabledAdsQuery query, CancellationToken cancellationToken = default)
         {
             List<AdResponse> ads = await _mediator.Send(query, cancellationToken);
             return Ok(ads);
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> UpdateAd(UpdateAdCommandDTO request, CancellationToken cancellationToken)
+        public async Task<IActionResult> UpdateAd(UpdateAdCommandDTO request, CancellationToken cancellationToken = default)
         {
             UpdateAdCommand command = _mapper.Map<UpdateAdCommand>(request);
             command.UpdatedBy = GetUserIdFromContext(); ;

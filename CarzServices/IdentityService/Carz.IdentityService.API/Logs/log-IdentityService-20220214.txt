@@ -1,0 +1,4 @@
+2022-02-14 18:06:05.753 +05:30 [INF] carz@admin.com tried login, inavlid credentials
+2022-02-14 18:52:23.919 +05:30 [INF] admin@carz.com logged in successfully
+2022-02-14 19:00:10.598 +05:30 [INF] admin@carz.com logged in successfully
+2022-02-14 19:01:32.168 +05:30 [INF] unable to block user : 3fa85f64-5717-4562-b3fc-2c963f66afa6 by cde1d0bb-3be7-44cc-f7f4-08d9ef15349d
