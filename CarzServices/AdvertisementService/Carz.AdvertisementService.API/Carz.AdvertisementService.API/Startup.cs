@@ -5,13 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using Serilog;
-using AutoMapper;
 using Carz.AdvertisementService.Infrastructure.Mappers;
 using Carz.Common.DependencyInjection;
 using Carz.AdvertisementService.Services.Mongo.Contexts;
+using System.Reflection;
 
 namespace Carz.AdvertisementService.API
 {
@@ -28,7 +26,7 @@ namespace Carz.AdvertisementService.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper( x => { x.AddProfile<AdMapper>(); x.AddProfile<BidMapper>(); });
-
+            services.AddCommonJwtAuthentication(Configuration);
             services.AddScoped<AdvertisementDbContext>();
 
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
@@ -37,10 +35,7 @@ namespace Carz.AdvertisementService.API
             services.AddScoped<IBidService, BidService>();
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.AdvertisementService.API", Version = "v1" });
-            });
+            services.AddSwaggerConfiguration(Assembly.GetExecutingAssembly().FullName.Split(',')[0]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +52,7 @@ namespace Carz.AdvertisementService.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

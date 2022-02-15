@@ -1,18 +1,11 @@
 using Carz.Common.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Carz.VariantService.API
 {
@@ -30,13 +23,10 @@ namespace Carz.VariantService.API
         {
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
             services.AddMediatrConfiguration("Carz.VariantService.API", "Carz.VariantService.Domain", "Carz.VariantService.Infrastructure");
-            services.AddAuthorizationFilter();
+            services.AddCommonJwtAuthentication(Configuration);
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Carz.VariantService.API", Version = "v1" });
-            });
+            services.AddSwaggerConfiguration(Assembly.GetExecutingAssembly().FullName.Split(',')[0]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,12 +39,11 @@ namespace Carz.VariantService.API
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Carz.VariantService.API v1"));
             }
 
-            app.UseAuthentication();
-            app.UseAuthorization();
-
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
