@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  carz.advertisementservice.api:
+    image: ${DOCKER_REGISTRY-}carzadvertisementserviceapi
+    build:
+      context: .
+      dockerfile: AdvertisementService/Carz.AdvertisementService.API/Carz.AdvertisementService.API/Dockerfile
+
+  carz.identityservice.api:
+    image: ${DOCKER_REGISTRY-}carzidentityserviceapi
+    build:
+      context: .
+      dockerfile: IdentityService/Carz.IdentityService.API/Dockerfile
+
+
+  carz.userservice.api:
+    image: ${DOCKER_REGISTRY-}carzuserserviceapi
+    build:
+      context: .
+      dockerfile: UserService/Carz.UserService.API/Carz.UserService.API/Dockerfile
+

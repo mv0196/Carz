@@ -1,0 +1,3 @@
+2022-02-23 11:26:05.119 +00:00 [WRN] Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+2022-02-23 11:26:05.965 +00:00 [WRN] No XML encryptor configured. Key {5fd713b5-0af5-4458-b927-e44ea3852c67} may be persisted to storage in unencrypted form.
+2022-02-23 11:57:43.219 +00:00 [INF] admin@carz.com logged in successfully

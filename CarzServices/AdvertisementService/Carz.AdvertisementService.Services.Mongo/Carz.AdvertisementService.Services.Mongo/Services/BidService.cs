@@ -54,7 +54,7 @@ namespace Carz.AdvertisementService.Services.Mongo.Services
 
             if (ad == null)
             {
-                _logger.LogInformation("Unable to place bif for Advertisement : {AdvertisementId} by User : {UserId} as the advertisement is not found", command.AdvertisementId, command.UserId);
+                _logger.LogInformation("Unable to place bid for Advertisement : {AdvertisementId} by User : {UserId} as the advertisement is not found", command.AdvertisementId, command.UserId);
                 return null;
             }
 
