@@ -12,7 +12,6 @@ namespace Carz.AdvertisementService.Domain.Entities
         public double Price { get; set; }
         public bool Won { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public Guid CreatedBy { get; set; }
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
         public Guid UpdatedBy { get; set; }
         public bool CreatedPublished { get; set; } = true;
