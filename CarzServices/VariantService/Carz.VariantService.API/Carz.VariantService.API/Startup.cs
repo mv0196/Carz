@@ -22,7 +22,7 @@ namespace Carz.VariantService.API
         public void ConfigureServices(IServiceCollection services)
         {
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();
-            services.AddMediatrConfiguration("Carz.VariantService.API", "Carz.VariantService.Domain", "Carz.VariantService.Infrastructure");
+            services.ConfigureMediatR("Carz.VariantService.API", "Carz.VariantService.Domain", "Carz.VariantService.Infrastructure");
             services.AddCommonJwtAuthentication(Configuration);
 
             services.AddControllers();

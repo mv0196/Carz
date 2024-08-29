@@ -30,7 +30,7 @@ namespace Carz.IdentityService.API
         {
             services.AddAutoMapper(x => { x.AddProfile<UserMapper>(); x.AddProfile<RoleMapper>(); });
             services.AddCommonJwtAuthentication(Configuration);
-            services.AddMediatrConfiguration("Carz.IdentityService.API", "Carz.IdentityService.Domain", "Carz.IdentityService.Infrastructure");
+            services.ConfigureMediatR("Carz.IdentityService.API", "Carz.IdentityService.Domain", "Carz.IdentityService.Infrastructure");
             services.AddSqlServer<IdentityUserDbContext>(Configuration);
 
             Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(Configuration).CreateLogger();

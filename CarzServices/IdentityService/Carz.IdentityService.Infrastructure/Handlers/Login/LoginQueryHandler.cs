@@ -1,4 +1,4 @@
-﻿    using AutoMapper;
+﻿using AutoMapper;
 using Carz.IdentityService.Domain.Queries.Login;
 using Carz.IdentityService.Domain.Queries.User;
 using Carz.IdentityService.Domain.Responses.Login;

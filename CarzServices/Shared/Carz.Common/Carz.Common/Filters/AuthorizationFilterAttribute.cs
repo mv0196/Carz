@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -8,12 +10,10 @@ using System.Net.Http;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http.Controllers;
-using System.Web.Http.Filters;
 
 namespace Carz.Common.Filters
 {
-    public class AuthorizationFilterAttribute : System.Web.Http.Filters.AuthorizationFilterAttribute
+    public class AuthorizationFilterAttribute : Attribute, IAuthorizationFilter
     {
         private readonly JwtSecurityTokenHandler handler;
         private List<string> AllowedRoles = new List<string>();
@@ -30,26 +30,20 @@ namespace Carz.Common.Filters
             this.handler = new JwtSecurityTokenHandler();
         }
 
-        public override async Task OnAuthorizationAsync(HttpActionContext actionContext, CancellationToken cancellationToken = default)
+        public void OnAuthorization(AuthorizationFilterContext context)
         {
-            HttpResponseMessage msg = new HttpResponseMessage();
-
-            var authHeader = actionContext.Request.Headers.Authorization;
+            var authHeader = context.HttpContext.Request.Headers.Authorization;
 
             // No token provided
-            if (authHeader == null)
+            if (authHeader.Any() == false)
             {
-                msg.StatusCode = HttpStatusCode.Unauthorized;
-                msg.Content = new StringContent("Provide authorization token to access the API");
-                actionContext.Response = msg;
+                context.Result = new UnauthorizedObjectResult("Provide authorization token to access the API");
             }
 
             var authHeaderStr = authHeader.ToString();
             if (authHeaderStr == null)
             {
-                msg.StatusCode = HttpStatusCode.Unauthorized;
-                msg.Content = new StringContent("Provide authorization token to access the API");
-                actionContext.Response = msg;
+                context.Result = new UnauthorizedObjectResult("Provide authorization token to access the API");
             }
 
             var token = authHeaderStr.Split()[1];
@@ -68,15 +62,12 @@ namespace Carz.Common.Filters
 
             if (roles.Intersect(AllowedRoles).Count() == 0)
             {
-                msg.StatusCode = HttpStatusCode.Unauthorized;
-                msg.Content = new StringContent("Provide authorization token to access the API");
-                actionContext.Response = msg;
+                context.Result = new UnauthorizedObjectResult("Provide authorization token to access the API");
             }
 
             //means allowed, so continue
-            //string body = await actionContext.Request.Content.ReadAsStringAsync();
-            actionContext.Request.Headers.Add("PerformedBy", Id.ToString());
-            await base.OnAuthorizationAsync(actionContext, cancellationToken);
+            //string body = await context.HttpContext.Request.Content.ReadAsStringAsync();
+            context.HttpContext.Request.Headers.Append("PerformedBy", Id.ToString());
         }
     }
 }

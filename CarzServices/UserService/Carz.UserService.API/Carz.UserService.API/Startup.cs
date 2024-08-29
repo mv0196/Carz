@@ -31,7 +31,7 @@ namespace Carz.UserService.API
             
             services.AddCommonJwtAuthentication(Configuration);
 
-            services.AddMediatR(typeof(Startup));
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining(typeof(Startup)));
 
             services.AddSqlServer<UserDbContext>(Configuration);
 
